@@ -1,13 +1,21 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  # before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def index
     @games = Game.all
   end
 
+  def show
+    @game = Game.find(params[:id])
+  end
+
   def new
     @game = Game.new
-    2.times { @game.names.build }
+    @game.names.build
+  end
+
+  def edit
+    @game = Game.find(params[:id])
   end
 
   def create
@@ -25,6 +33,8 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game = Game.find(params[:id])
+
     respond_to do |format|
       if @game.update(game_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
@@ -37,6 +47,7 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    @game = Game.find(params[:id])
     @game.destroy
     respond_to do |format|
       format.html { redirect_to games_url }
@@ -50,6 +61,6 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      params.require(:game).permit(:instructions, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood)
+      params.require(:game).permit(:instructions, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id])
     end
 end

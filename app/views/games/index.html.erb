@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Instructions</th>
       <th>Maximum</th>
       <th>Minimum</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
+        <td><%= game.names.count %></td>
         <td><%= game.instructions %></td>
         <td><%= game.maximum %></td>
         <td><%= game.minimum %></td>
