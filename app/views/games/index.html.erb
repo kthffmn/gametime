@@ -1,0 +1,41 @@
+<h1>Listing games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Instructions</th>
+      <th>Maximum</th>
+      <th>Minimum</th>
+      <th>Early childhood</th>
+      <th>Elementary school</th>
+      <th>Middle school</th>
+      <th>High school</th>
+      <th>College</th>
+      <th>Adulthood</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.instructions %></td>
+        <td><%= game.maximum %></td>
+        <td><%= game.minimum %></td>
+        <td><%= game.early_childhood %></td>
+        <td><%= game.elementary_school %></td>
+        <td><%= game.middle_school %></td>
+        <td><%= game.high_school %></td>
+        <td><%= game.college %></td>
+        <td><%= game.adulthood %></td>
+        <td><%= link_to 'Show', game %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game', new_game_path %>

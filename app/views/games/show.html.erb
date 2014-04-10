@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @game.instructions %>
+</p>
+
+<p>
+  <strong>Maximum:</strong>
+  <%= @game.maximum %>
+</p>
+
+<p>
+  <strong>Minimum:</strong>
+  <%= @game.minimum %>
+</p>
+
+<p>
+  <strong>Early childhood:</strong>
+  <%= @game.early_childhood %>
+</p>
+
+<p>
+  <strong>Elementary school:</strong>
+  <%= @game.elementary_school %>
+</p>
+
+<p>
+  <strong>Middle school:</strong>
+  <%= @game.middle_school %>
+</p>
+
+<p>
+  <strong>High school:</strong>
+  <%= @game.high_school %>
+</p>
+
+<p>
+  <strong>College:</strong>
+  <%= @game.college %>
+</p>
+
+<p>
+  <strong>Adulthood:</strong>
+  <%= @game.adulthood %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

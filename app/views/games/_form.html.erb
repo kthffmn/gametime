@@ -1,0 +1,56 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:
+      </h2>
+      <ul>
+        <% @game.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <% f.fields_for :names do |builder| %>
+      <p>
+        <%= builder.label :content, "Game name" %><br />
+        <%= builder.text_field :content, :rows => 2 %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="field"> <%= f.label :instructions %><br>
+  <%= f.text_area :instructions %></div>
+
+  <div class="field"><%= f.label :example_script %><br>
+  <%= f.text_area :example_script %></div>
+  
+  <div class="field"><%= f.label :maximum %><br>
+  <%= f.number_field :maximum %></div>
+
+  <div class="field"><%= f.label :minimum %><br>
+  <%= f.number_field :minimum %></div>
+
+  <div class="field"><%= f.label :early_childhood %><br>
+  <%= f.check_box :early_childhood %></div>
+
+  <div class="field"><%= f.label :elementary_school %><br>
+  <%= f.check_box :elementary_school %></div>
+  
+  <div class="field"><%= f.label :middle_school %><br>
+  <%= f.check_box :middle_school %></div>
+
+  <div class="field"><%= f.label :high_school %><br>
+  <%= f.check_box :high_school %></div>
+
+  <div class="field"><%= f.label :college %><br>
+  <%= f.check_box :college %></div>
+
+  <div class="field"><%= f.label :adulthood %><br>
+  <%= f.check_box :adulthood %></div>
+
+  <div class="actions"><%= f.submit %></div>
+
+<% end %>
