@@ -12,24 +12,24 @@
     </div>
   <% end %>
 
-  <%= f.fields_for :names do |builder| %>
-    <p>
-      <%= builder.label :content, "Game name" %><br />
-      <%= builder.text_field :content, :rows => 1 %>
-    </p>
-  <% end %>
+  <div class="field">
+    <%= f.fields_for :names do |builder| %>
+      <%= render 'name_fields', f: builder %>
+    <% end %>
+  </div>
+  <%#= link_to_add_fields "Add Name", f, :names %>
 
   <div class="field"> <%= f.label :instructions %><br>
   <%= f.text_area :instructions %></div>
 
   <div class="field"><%= f.label :example_script, "Example" %><br>
   <%= f.text_area :example_script %></div>
-  
-  <div class="field"><%= f.label :maximum, "Minimum number of players" %><br>
-  <%= f.number_field :maximum %></div>
 
-  <div class="field"><%= f.label :minimum, "Maximum number of players" %><br>
+  <div class="field"><%= f.label :minimum, "Minimum number of players" %><br>
   <%= f.number_field :minimum %></div>
+
+  <div class="field"><%= f.label :maximum, "Maximum number of players" %><br>
+  <%= f.number_field :maximum %></div>
 
   <div class="field"><%= f.label :early_childhood %><br>
   <%= f.check_box :early_childhood %></div>

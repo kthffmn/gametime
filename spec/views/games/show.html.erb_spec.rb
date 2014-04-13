@@ -4,11 +4,11 @@ describe "games/show" do
   before(:each) do
     @game = assign(:game, stub_model(Game,
       :instructions => "Instructions",
-      :maximum => 1,
-      :minimum => 2,
+      :maximum => 50,
+      :minimum => 10,
       :early_childhood => false,
       :elementary_school => false,
-      :middle_school => false,
+      :middle_school => true,
       :high_school => false,
       :college => false,
       :adulthood => false
@@ -19,11 +19,11 @@ describe "games/show" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Instructions/)
-    rendered.should match(/1/)
-    rendered.should match(/2/)
+    rendered.should match(/50/)
+    rendered.should match(/10/)
     rendered.should match(/false/)
     rendered.should match(/false/)
-    rendered.should match(/false/)
+    rendered.should match(/true/)
     rendered.should match(/false/)
     rendered.should match(/false/)
     rendered.should match(/false/)

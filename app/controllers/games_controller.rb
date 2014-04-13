@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-  # before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def index
     @games = Game.all
@@ -11,7 +10,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @game.names.build
+    @name = @game.names.build
   end
 
   def edit
@@ -56,11 +55,8 @@ class GamesController < ApplicationController
   end
 
   private
-    def set_game
-      @game = Game.find(params[:id])
-    end
 
     def game_params
-      params.require(:game).permit(:instructions, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id])
+      params.require(:game).permit(:instructions, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id, :id, :_destroy])
     end
 end

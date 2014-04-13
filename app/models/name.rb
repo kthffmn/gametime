@@ -1,4 +1,5 @@
 class Name < ActiveRecord::Base
   belongs_to :game
-  validates :content, uniqueness: true
+  validates :content, :presence => true
+
 end
