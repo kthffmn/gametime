@@ -5,7 +5,10 @@ class GameValidator < ActiveModel::Validator
     end
     unless game.early_childhood  || game.elementary_school || game.adulthood ||
            game.middle_school    || game.high_school       || game.college
-      game.errors[:base] << "Must select an age group."
+      game.errors[:base] << "Select an age group."
+    end
+    if game.names.length < 1
+      game.errors[:base] << "Missing a name."
     end
   end
 end
