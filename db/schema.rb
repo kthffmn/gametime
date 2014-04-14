@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140410180010) do
     t.text     "example_script"
     t.integer  "maximum"
     t.integer  "minimum"
+    t.integer  "likes",             default: 0
     t.boolean  "early_childhood"
     t.boolean  "elementary_school"
     t.boolean  "middle_school"
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140410180010) do
 
   create_table "names", force: true do |t|
     t.string   "content"
-    t.integer  "popularity"
+    t.integer  "popularity", default: 0
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"

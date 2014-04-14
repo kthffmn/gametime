@@ -5,6 +5,7 @@ class CreateGames < ActiveRecord::Migration
       t.text :example_script
       t.integer :maximum
       t.integer :minimum
+      t.integer :likes, :default => 0
       t.boolean :early_childhood
       t.boolean :elementary_school
       t.boolean :middle_school
