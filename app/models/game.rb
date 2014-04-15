@@ -1,16 +1,23 @@
 class GameValidator < ActiveModel::Validator
   def validate(game)
+    
     if game.minimum > game.maximum
       game.errors[:base] << "Minimum must be less than or equal to maximum."
     end
+    
     unless game.early_childhood  || game.elementary_school || game.adulthood ||
            game.middle_school    || game.high_school       || game.college
       game.errors[:base] << "Select an age group."
     end
+    
     if game.names.length < 1
       game.errors[:base] << "Missing a name."
     end
-    # game.names.collect do 
+    
+    names = game.names.collect{|name| name.popularity }
+    unless names.length == names.uniq.length
+      game.errors[:base] << "Select different popularity values."
+    end
 
   end
 end

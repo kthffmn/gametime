@@ -4,9 +4,10 @@
 
 jQuery ->
   $(document).ready ->
-    $(".remove_fields").hide()
-    $('#game_names_attributes_0_popularity').hide()
-
+    unless $("#game_names_attributes_1_content").length > 0
+      $(".remove_fields").hide()
+      $('#game_names_attributes_0_popularity').hide()
+      
     $('form').on 'click', '.remove_fields', (event) ->
       $(this).prev('input[type=hidden]').val('1')
       $(this).closest('fieldset').hide()

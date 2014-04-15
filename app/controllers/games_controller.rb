@@ -57,6 +57,6 @@ class GamesController < ApplicationController
   private
 
     def game_params
-      params.require(:game).permit(:instructions, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id, :id, :_destroy])
+      params.require(:game).permit(:instructions, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id, :id, :_destroy, :popularity])
     end
 end
