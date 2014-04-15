@@ -10,6 +10,8 @@ class GameValidator < ActiveModel::Validator
     if game.names.length < 1
       game.errors[:base] << "Missing a name."
     end
+    # game.names.collect do 
+
   end
 end
 

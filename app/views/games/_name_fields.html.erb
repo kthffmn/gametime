@@ -1,6 +1,7 @@
 <fieldset>
   <%= f.label :content, "Name" %>
   <%= f.text_field :content %>
+  <%= f.select :popularity, [['most popular', 5],['more popular', 4],['popular', 3],['less popular',2],['least popular',1],['select popularity', 0]] %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", "#", class: 'remove_fields' %>
 </fieldset>
