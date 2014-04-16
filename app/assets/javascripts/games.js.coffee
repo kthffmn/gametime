@@ -5,36 +5,44 @@
 jQuery ->
   $(document).ready ->
 
-    $(".remove_fields").first().hide()
+    $('.remove_fields').first().hide()
 
-    if $(".remove_fields").filter(':visible').length > 3
-      $(".add_fields").hide()
+    if $('.remove_fields').filter(':visible').length > 3
+      $('.add_fields').hide()
 
-    unless $("#game_names_attributes_1_content").length > 0
+    unless $('#game_names_attributes_1_content').length > 0
       $('#game_names_attributes_0_popularity').first().hide()
-
-    $('form').on 'click', '#game-all-ages', (event) ->
-
 
     $('form').on 'click', '.remove_fields', (event) ->
       $(this).prev('input[type=hidden]').val('1')
       $(this).closest('fieldset').hide()
       event.preventDefault
-      if $(".add_fields").filter(':visible').length == 0
-        $(".add_fields").show()
-      if $(".remove_fields").filter(':visible').length == 0     
+      if $('.add_fields').filter(':visible').length == 0
+        $('.add_fields').show()
+      if $('.remove_fields').filter(':visible').length == 0     
         $('#game_names_attributes_0_popularity').hide()  
 
     $('form').on 'click', '.add_fields', (event) ->
-      if $(".remove_fields").filter(':visible').length < 3
-        time = new Date().getTime()
+      if $('.remove_fields').filter(':visible').length < 3
+        time = new Date().getTime() 
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
         $('#game_names_attributes_0_popularity').show()
         event.preventDefault()
-      else if $(".remove_fields").filter(':visible').length >= 3
+      else if $('.remove_fields').filter(':visible').length >= 3
         time = new Date().getTime()
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
-        $(".add_fields").hide()
+        $('.add_fields').hide()
         event.preventDefault()
+
+    $('form').on 'click', '#game_all_ages', (event) ->
+      console.log("clicked")
+      if $('#game_all_ages').is(':checked') 
+        $('#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood').prop("checked", true)
+        console.log("if")
+      else
+        $('#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood').prop("checked", false)
+        console.log("else")
+
+
