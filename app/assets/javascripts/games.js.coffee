@@ -37,12 +37,10 @@ jQuery ->
         event.preventDefault()
 
     $('form').on 'click', '#game_all_ages', (event) ->
-      console.log("clicked")
       if $('#game_all_ages').is(':checked') 
-        $('#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood').prop("checked", true)
-        console.log("if")
+        trueOrFalse = true
       else
-        $('#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood').prop("checked", false)
-        console.log("else")
+        trueOrFalse = false
+      $('#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood').prop("checked", trueOrFalse)
 
 
