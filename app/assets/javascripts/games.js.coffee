@@ -43,4 +43,10 @@ jQuery ->
         trueOrFalse = false
       $('#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood').prop("checked", trueOrFalse)
 
+    $('form').on 'click', '#game_early_childhood, #game_elementary_school, #game_middle_school, #game_high_school, #game_college, #game_adulthood', (event) ->
+      if $("#game_all_ages").is(":checked")
+        $("#game_all_ages").prop "checked", false
+      if $("#game_early_childhood").is(':checked') and $("#game_elementary_school").is(':checked') and $("#game_middle_school").is(':checked') and $("#game_high_school").is(':checked') and $("#game_college").is(':checked') and $("#game_adulthood").is(':checked')
+        $("#game_all_ages").prop "checked", true
 
+      
