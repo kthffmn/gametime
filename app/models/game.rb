@@ -15,12 +15,13 @@ class GameValidator < ActiveModel::Validator
     end
     
     names = game.names.collect{|name| name.popularity }
+    if names.length > 1 && names.include?(0)
+      return game.errors[:base] << "Please select popularity value(s)."
+    end
     unless names.length == names.uniq.length
       game.errors[:base] << "Select different popularity values."
     end
-    if names.length > 1 && names.include?(0)
-      game.errors[:base] << "Please select popularity value(s)."
-    end
+
   end
 end
 
