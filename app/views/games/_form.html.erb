@@ -31,23 +31,28 @@
   <div class="field"><%= f.label :maximum, "Maximum number of players" %><br>
   <%= f.number_field :maximum %></div>
 
-  <div class="field"><%= f.label :early_childhood %><br>
-  <%= f.check_box :early_childhood %></div>
+  <div class="field">
+    <input id="all_ages" name="all_ages" type="checkbox"/>
+    <label for="all_ages">All ages</label>
+  </div>
 
-  <div class="field"><%= f.label :elementary_school %><br>
-  <%= f.check_box :elementary_school %></div>
+  <div class="field"><%= f.check_box :early_childhood %>
+  <%= f.label :early_childhood %></div>
+
+  <div class="field"><%= f.check_box :elementary_school %>
+  <%= f.label :elementary_school %></div>
   
-  <div class="field"><%= f.label :middle_school %><br>
-  <%= f.check_box :middle_school %></div>
+  <div class="field"><%= f.check_box :middle_school %>
+  <%= f.label :middle_school %></div>
 
-  <div class="field"><%= f.label :high_school %><br>
-  <%= f.check_box :high_school %></div>
+  <div class="field"><%= f.check_box :high_school %>
+  <%= f.label :high_school %></div>
 
-  <div class="field"><%= f.label :college %><br>
-  <%= f.check_box :college %></div>
+  <div class="field"><%= f.check_box :college %>
+  <%= f.label :college %></div>
 
-  <div class="field"><%= f.label :adulthood %><br>
-  <%= f.check_box :adulthood %></div>
+  <div class="field"><%= f.check_box :adulthood %>
+  <%= f.label :adulthood %></div>
 
   <div class="actions"><%= f.submit %></div>
 
