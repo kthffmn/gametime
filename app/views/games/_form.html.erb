@@ -19,7 +19,7 @@
   </div>
   <%= link_to_add_fields "Add Name", f, :names %>
 
-  <%  game_form.fields_for :tags do |tag_form| %>
+  <% f.fields_for :tags do |tag_form| %>
       <div class="field">
         <%= tag_form.label :name, "Tag" %>
         <%= tag_form.text_field :name %>
