@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Instructions</th>
+      <th>Description</th>
       <th>Maximum</th>
       <th>Minimum</th>
       <th>Early childhood</th>
@@ -21,7 +21,7 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.names.first.content %></td>
-        <td><%= game.instructions %></td>
+        <td><%= game.description %></td>
         <td><%= game.maximum %></td>
         <td><%= game.minimum %></td>
         <td><%= game.early_childhood %></td>

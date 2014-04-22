@@ -14,7 +14,9 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @name = @game.names.build
+    @game.names.build
+    @game.tagizations.build
+    @game.tags.build
   end
 
   def edit
@@ -61,6 +63,6 @@ class GamesController < ApplicationController
   private
 
     def game_params
-      params.require(:game).permit(:description, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id, :id, :_destroy, :popularity])
+      params.require(:game).permit(:description, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, :is_an_exercise, names_attributes: [:content, :game_id, :id, :_destroy, :popularity])
     end
 end

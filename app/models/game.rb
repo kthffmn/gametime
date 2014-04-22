@@ -28,12 +28,17 @@ end
 class Game < ActiveRecord::Base
   has_many :names
   accepts_nested_attributes_for :names, allow_destroy: true
+  accepts_nested_attributes_for :tagizations
+  accepts_nested_attributes_for :tags
 
-  validates :instructions, :presence => true, :length => { :minimum => 10, :maximum => 1000, :message => "must be between 10-1000 characters"}
+  validates :description, :presence => true, :length => { :minimum => 10, :maximum => 1000, :message => "must be between 10-1000 characters"}
   validates_numericality_of [:minimum, :maximum], :greater_than_or_equal_to => 2, only_integer: true
 
   validates_with GameValidator
-
+  has_many :tags, :through => :tagizations
+  
+  before_save :before_save_slugify
+  
   def sort_names_by_popularity
     self.names.sort{|a,b| a.popularity <=> b.popularity }
   end
@@ -46,4 +51,5 @@ class Game < ActiveRecord::Base
     names = sort_names_by_popularity
     names.count > 1 ? names[1..-1] : false
   end
+
 end

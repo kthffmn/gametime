@@ -26,8 +26,7 @@ ActiveRecord::Schema.define(version: 20140422193414) do
     t.boolean  "high_school"
     t.boolean  "college"
     t.boolean  "adulthood"
-    t.boolean  "exercise"
-    t.string   "slug"
+    t.boolean  "is_an_exercise"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,13 +35,16 @@ ActiveRecord::Schema.define(version: 20140422193414) do
     t.string   "content"
     t.integer  "popularity", default: 0
     t.integer  "game_id"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tagizations", id: false, force: true do |t|
-    t.integer "game_id"
-    t.integer "tag_id"
+    t.integer  "game_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", force: true do |t|

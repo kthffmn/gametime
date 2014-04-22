@@ -1,7 +1,8 @@
 <div class="container-fluid">
 
-  <div class="search">
+ <div class="search">
     <input id="search" type="text" ng-model="query" />
+    <select ng-model="orderProp">
       <option value="likes">Popularity</option>
       <option value="minimum">Minimum Number of Players</option>
       <option value="maximum">Maximum Number of Players</option>
@@ -10,8 +11,7 @@
 
   <table class="table">
     <tr>
-      <th>Name</th>
-      <th>Instructions</th>
+      <th>Description</th>
       <th>Example</th>
       <th>Likes</th>
       <th>Minimum</th>
@@ -23,7 +23,7 @@
           View Page
         </a>
       </td>
-      <td>{{game.instructions}}</td>
+      <td>{{game.description}}</td>
       <td>{{game.example}}</td>
       <td>{{game.likes}}</td>
       <td>{{game.minimum}}</td>

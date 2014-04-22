@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :game do |g|
-    g.instructions "Get into a circle, with one person in the middle. Sing bunny bunny, etc."
+    g.description "Get into a circle, with one person in the middle. Sing bunny bunny, etc."
     g.example_script "Bunny bunny bunny toky toky toky"
     g.maximum 20
     g.minimum 6
@@ -34,7 +34,7 @@ FactoryGirl.define do
   end
 
   factory :invalid_game_max, class: Name do |g|
-    g.instructions "Get into a circle, with one person in the middle. Sing bunny bunny, etc."
+    g.description "Get into a circle, with one person in the middle. Sing bunny bunny, etc."
     g.example_script "Bunny bunny bunny toky toky toky"
     g.maximum 20
     g.minimum 6

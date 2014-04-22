@@ -19,8 +19,15 @@
   </div>
   <%= link_to_add_fields "Add Name", f, :names %>
 
-  <div class="field"> <%= f.label :instructions %><br>
-  <%= f.text_area :instructions %></div>
+  <%  game_form.fields_for :tags do |tag_form| %>
+      <div class="field">
+        <%= tag_form.label :name, "Tag" %>
+        <%= tag_form.text_field :name %>
+      </div>
+   <% end %>
+
+  <div class="field"> <%= f.label :description %><br>
+  <%= f.text_area :description %></div>
 
   <div class="field"><%= f.label :example_script, "Example" %><br>
   <%= f.text_area :example_script %></div>
@@ -30,6 +37,9 @@
 
   <div class="field"><%= f.label :maximum, "Maximum number of players" %><br>
   <%= f.number_field :maximum %></div>
+
+  <div class="field"><%= f.check_box :is_an_exercise %>
+  <%= f.label :is_an_exercise, "Is this an excercise?" %></div>
 
   <div class="field">
     <input id="game_all_ages" name="all_ages" type="checkbox"/>
