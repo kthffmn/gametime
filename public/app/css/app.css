@@ -1,0 +1,59 @@
+body {
+  color: white;
+  background-color: black;
+}
+
+h1 {
+  color: lightblue;
+  text-shadow: 2px 2px 0 deepskyblue;
+  font-family: "Abril Fatface", serif;
+  font-size: 64px;
+}
+
+.back {
+  font-size: 32px;
+}
+
+.new {
+  float: right;
+}
+
+button {
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.jumbo {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.3);
+  margin: 20px 0;
+}
+
+label {
+  padding: 10px;
+  margin: 20px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#search, select, input {
+  width: 500px;
+  color: black;
+  border: lightblue solid 2px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+a {
+  color: lightblue;
+  font-weight: 800;
+}
+
+.info {
+  display: inline-block;
+  width: 300px;
+  padding: 20px;
+}

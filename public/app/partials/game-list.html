@@ -3,7 +3,6 @@
   <div class="search">
     <input id="search" type="text" ng-model="query" />
       <option value="likes">Popularity</option>
-      <option value=".names[0].content">Name</option>
       <option value="minimum">Minimum Number of Players</option>
       <option value="maximum">Maximum Number of Players</option>
     </select>
@@ -19,8 +18,7 @@
       <th>Maximum</th>
     </tr>
     <tr ng-repeat="event in events | filter: query | orderBy:orderProp" data-id={{event.id}}>
-      <td><a href="/games/{{game.id}}">{{game.names[0].content}}</a></td>
-      <td>{{game.names[0].content}}</td>
+      <td><a href="/games/{{game.id}}">View Page</a></td>
       <td>{{game.instructions}}</td>
       <td>{{game.example}}</td>
       <td>{{game.likes}}</td>
