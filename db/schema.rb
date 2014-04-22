@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410180010) do
+ActiveRecord::Schema.define(version: 20140422193414) do
 
   create_table "games", force: true do |t|
-    t.text     "instructions"
+    t.text     "description"
+    t.text     "variations"
     t.text     "example_script"
     t.integer  "maximum"
     t.integer  "minimum"
@@ -25,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140410180010) do
     t.boolean  "high_school"
     t.boolean  "college"
     t.boolean  "adulthood"
+    t.boolean  "exercise"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +36,18 @@ ActiveRecord::Schema.define(version: 20140410180010) do
     t.string   "content"
     t.integer  "popularity", default: 0
     t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tagizations", id: false, force: true do |t|
+    t.integer "game_id"
+    t.integer "tag_id"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

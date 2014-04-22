@@ -1,7 +1,8 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.text :instructions
+      t.text :description
+      t.text :variations
       t.text :example_script
       t.integer :maximum
       t.integer :minimum
@@ -12,6 +13,8 @@ class CreateGames < ActiveRecord::Migration
       t.boolean :high_school
       t.boolean :college
       t.boolean :adulthood
+      t.boolean :exercise
+      t.string  :slug
 
       t.timestamps
     end
