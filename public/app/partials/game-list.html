@@ -17,7 +17,7 @@
       <th>Minimum</th>
       <th>Maximum</th>
     </tr>
-    <tr ng-repeat="event in events | filter: query | orderBy:orderProp" data-id={{event.id}}>
+    <tr ng-repeat="game in games | filter: query | orderBy:orderProp" data-id={{game.id}}>
       <td><a href="/games/{{game.id}}">View Page</a></td>
       <td>{{game.instructions}}</td>
       <td>{{game.example}}</td>
