@@ -26,8 +26,13 @@ class GameValidator < ActiveModel::Validator
 end
 
 class Game < ActiveRecord::Base
+
   has_many :names
   accepts_nested_attributes_for :names, allow_destroy: true
+
+  has_many :tagizations
+  has_many :tags, :through => :tagizations
+
   accepts_nested_attributes_for :tagizations
   accepts_nested_attributes_for :tags
 
@@ -35,7 +40,6 @@ class Game < ActiveRecord::Base
   validates_numericality_of [:minimum, :maximum], :greater_than_or_equal_to => 2, only_integer: true
 
   validates_with GameValidator
-  has_many :tags, :through => :tagizations
   
   before_save :before_save_slugify
   
