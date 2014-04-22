@@ -1,9 +1,5 @@
 'use strict';
 
-//this used to be in our controllers 
-// but now that we have more than one
-// controller, it's going in here!
-
 //the empty array argument also now holds
 //2 items, these are the modules that the
 //app depends on
