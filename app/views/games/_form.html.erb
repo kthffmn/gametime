@@ -19,12 +19,14 @@
   </div>
   <%= link_to_add_fields "Add Name", f, :names %>
 
-  <% f.fields_for :tags do |tag_form| %>
-      <div class="field">
+  <div class="field">
+    <% f.fields_for :tagizations do |tagization_form| %>
+      <%  tagization_form.fields_for :tag do |tag_form| %>
         <%= tag_form.label :name, "Tag" %>
         <%= tag_form.text_field :name %>
-      </div>
-   <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
   <div class="field"> <%= f.label :description %><br>
   <%= f.text_area :description %></div>
