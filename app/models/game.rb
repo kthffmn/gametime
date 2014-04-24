@@ -40,7 +40,6 @@ class Game < ActiveRecord::Base
 
   validates_with GameValidator
   
-  before_save :before_save_slugify
   
   def sort_names_by_popularity
     self.names.sort{|a,b| a.popularity <=> b.popularity }

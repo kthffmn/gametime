@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
     @name = @game.names.build
-    @tagizatons = @game.tagizatons.build
+    @tagizatons = @game.tagizations.build
     @tag = @tagizatons.build_tag
   end
 
