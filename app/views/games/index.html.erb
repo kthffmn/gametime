@@ -20,7 +20,7 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.names.first.content %></td>
+        <td><%= game.most_popular_name.content %></td>
         <td><%= game.description %></td>
         <td><%= game.maximum %></td>
         <td><%= game.minimum %></td>
