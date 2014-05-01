@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     @games = Game.all
     respond_to do |format|
       format.html
-      format.json { render :json => @games.to_json(:include => [:names, :variations, :tags, :tips, :relations])}
+      format.json { render :json => @games.to_json(:include => [:names, :variations, :tags, :tips])}
     end
   end
 
@@ -73,7 +73,7 @@ class GamesController < ApplicationController
                                     :maximum, :minimum, 
                                     names_attributes: [:content, :game_id, :id, :_destroy, :popularity], 
                                     relationships_attributes: [:id, :relation_id],
-                                    tagizations_attributes: [:id, tag_attributes: [:name]],
+                                    tagizations_attributes: [:id, :tag_id],
                                     tips_attributes: [:content, :game_id],
                                     variation_attributes: [:content, :game_id]
                                   )
