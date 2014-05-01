@@ -77,21 +77,27 @@
 
 <p>
   <strong>Variations:</strong>
-  ADD MODEL
   <ul>
-    <%# @game.variations.each do |variation| %>
-      <li><%#= variation.content %></li>
-    <%# end %>
+    <% if @game.variations.length > 0 %>
+      <% @game.variations.each do |var| %>
+        <li><%= var.content %></li>
+      <% end %>
+    <% else %>
+      <li>none</li>
+    <% end %>
   </ul>
 </p>
 
 <p>
   <strong>Tips:</strong>
-  ADD MODEL
   <ul>
-    <%# @game.tips.each do |tip| %>
-      <li><%#= tip.content %></li>
-    <%# end %>
+    <% if @game.tips.length > 0 %>
+      <% @game.tips.each do |tip| %>
+        <li><%= tip.content %></li>
+      <% end %>
+    <% else %>
+      <li>none</li>
+    <% end %>
   </ul>
 </p>
 
