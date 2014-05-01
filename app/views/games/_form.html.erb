@@ -29,12 +29,11 @@
   </div>
 
   <div class="field">
-    <%= f.fields_for :relationships do |relationship| %>
-      <%= relationship.fields_for :relation do |r| %>
-        <%= tag_form.label :name, "Tag" %>
-        <%= tag_form.text_field :name %>
-      <% end %>
-    <% end %>
+    <%#= f.fields_for :relationships do |relationship| %>
+      <%#= relationship.fields_for :relation do |r| %>
+        <%#= r.collection_select :relation_id, Game.all, :id, :most_popular_name, :include_blank => "Select a related game." %>
+      <%# end %>
+    <%# end %>
   </div>
 
   <div class="field"> <%= f.label :description %><br>
@@ -49,8 +48,10 @@
   <div class="field"><%= f.label :maximum, "Maximum number of players" %><br>
   <%= f.number_field :maximum %></div>
 
-  <div class="field"><%= f.check_box :is_an_exercise %>
-  <%= f.label :is_an_exercise, "Is this an excercise?" %></div>
+  <div class="field">
+    <%= f.label :is_an_exercise, "Is this an excercise? (check box if yes)" %>
+    <%= f.check_box :is_an_exercise %>
+  </div>
 
   <div class="field">
     <input id="game_all_ages" name="all_ages" type="checkbox"/>

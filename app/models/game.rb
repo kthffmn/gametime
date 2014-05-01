@@ -31,7 +31,7 @@ class Game < ActiveRecord::Base
   has_many :relationships
   has_many :relations, :through => :relationships
   accepts_nested_attributes_for :relationships
-  
+
   has_many :tagizations
   has_many :tags, :through => :tagizations
   accepts_nested_attributes_for :tagizations
@@ -56,8 +56,11 @@ class Game < ActiveRecord::Base
   end
 
   def less_popular_names
-    names = sort_names_by_popularity
-    names.count > 1 ? names[1..-1] : false
+    if sort_names_by_popularity.count > 1 
+      names[1..-1]
+    else
+      false
+    end
   end
 
 end

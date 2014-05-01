@@ -2,14 +2,14 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @game.most_popular_name %>
+  <%= @game.most_popular_name.content %>
 </p>
 
 <p>
-  <% if less_popular_names = @game.less_popular_names? %>
+  <% if @game.less_popular_names %>
     <strong>Also known as:</strong>
     <ul>
-      <%= less_popular_names.each do |name|%>
+      <%= @game.less_popular_names.each do |name|%>
         <li>name.content</li>
       <% end %>
     </ul>
@@ -63,13 +63,13 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @game.is_an_excercise ? "excercise" : "game" %>
+  <%= @game.is_an_exercise ? "exercise" : "game" %>
 </p>
 
 <p>
   <strong>Tags:</strong>
   <ul>
-    <% @game.tagizations.tags.each do |tag| %>
+    <% @game.tags.each do |tag| %>
       <li><%= tag.name %></li>
     <% end %>
   </ul>
@@ -77,26 +77,28 @@
 
 <p>
   <strong>Variations:</strong>
+  ADD MODEL
   <ul>
-    <% @game.variations.each do |variation| %>
-      <li><%= variation.content %></li>
-    <% end %>
+    <%# @game.variations.each do |variation| %>
+      <li><%#= variation.content %></li>
+    <%# end %>
   </ul>
 </p>
 
 <p>
   <strong>Tips:</strong>
+  ADD MODEL
   <ul>
-    <% @game.tips.each do |tip| %>
-      <li><%= tip.content %></li>
-    <% end %>
+    <%# @game.tips.each do |tip| %>
+      <li><%#= tip.content %></li>
+    <%# end %>
   </ul>
 </p>
 
 <p>
   See also:
   <ul>
-    <% for relationship in @user.relationships %>
+    <% for relationship in @game.relationships %>
       <li>
         <%= relationship.relation.most_popular_name %>
         (<%= link_to "remove", relationship, :method => :delete %>)
