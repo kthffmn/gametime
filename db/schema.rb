@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140428165343) do
 
   create_table "relationships", id: false, force: true do |t|
     t.integer "game_id",     null: false
-    t.integer "relative_id", null: false
+    t.integer "relation_id", null: false
   end
 
   create_table "tagizations", id: false, force: true do |t|
