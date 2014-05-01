@@ -24,7 +24,7 @@ bunny_game = Game.new(  description: "Extremely silly game, to pump up the energ
                         adulthood: 1
                       )
 bunny_game.names = [Name.create(content: "Bunny", game_id: bunny_game.id)]
-bunny_game.tags = [Tag.find(26)]
+bunny_game.tags = [Tag.find_by_name("energy")]
 
 # save
 bunny_game.save!
