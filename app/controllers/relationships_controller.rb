@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
   def destroy
     @relationship = Relationship.find(params[:id])
     @relationship.destroy
-    flash[:notice] = "Successfully destroyed link"
+    flash[:notice] = "Removed link"
     redirect_to root_url
   end
 end

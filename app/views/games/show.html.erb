@@ -98,7 +98,7 @@
   <ul>
     <% for relationship in @user.relationships %>
       <li>
-        <%=h relationship.relation.most_popular_name %>
+        <%= relationship.relation.most_popular_name %>
         (<%= link_to "remove", relationship, :method => :delete %>)
       </li>
     <% end %>
