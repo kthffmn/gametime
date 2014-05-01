@@ -33,10 +33,8 @@
 
   <div class="field">
     <%= f.fields_for :relationships do |relationship| %>
-      <%= relationship.fields_for :relation do |r| %>
-        <%= r.label :id, "Related Game:" %>
-        <%= r.collection_select :id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)" %>
-      <% end %>
+      <%= relationship.label :relation_id, "Related Game:" %>
+      <%= relationship.collection_select :relation_id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)" %>
     <% end %>
   </div>
 
