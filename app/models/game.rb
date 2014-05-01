@@ -55,6 +55,10 @@ class Game < ActiveRecord::Base
     sort_names_by_popularity.first
   end
 
+  def most_popular_name_content
+    most_popular_name.content
+  end
+
   def less_popular_names
     if sort_names_by_popularity.count > 1 
       names[1..-1]
