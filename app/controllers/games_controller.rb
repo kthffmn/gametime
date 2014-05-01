@@ -17,6 +17,8 @@ class GamesController < ApplicationController
     @name = @game.names.build
     @tagizatons = @game.tagizations.build
     @tag = @tagizatons.build_tag
+    @relationships = @game.relationships.build
+    @relation = @relationships.build_relation
   end
 
   def edit
@@ -63,6 +65,19 @@ class GamesController < ApplicationController
   private
 
     def game_params
-      params.require(:game).permit(:description, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, :is_an_exercise, names_attributes: [:content, :game_id, :id, :_destroy, :popularity], tagizations_attributes: [:id, tag_attributes: [:name ]])
+      params.require(:game).permit( 
+
+        :description, 
+        :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, 
+        :example_script,
+        :is_an_exercise,
+        :maximum, :minimum, 
+        names_attributes: [:content, :game_id, :id, :_destroy, :popularity], 
+        relationships_attributes: [:id, relations_attributes: [:relation_id]],
+        tagizations_attributes: [:id, tag_attributes: [:name]],
+        tips_attributes: [:content, :game_id],
+        variation_attributes: [:content, :game_id]
+
+                                  )
     end
 end

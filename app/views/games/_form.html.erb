@@ -28,6 +28,15 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= f.fields_for :relationships do |relationship| %>
+      <%= relationship.fields_for :relation do |r| %>
+        <%= tag_form.label :name, "Tag" %>
+        <%= tag_form.text_field :name %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="field"> <%= f.label :description %><br>
   <%= f.text_area :description %></div>
 
