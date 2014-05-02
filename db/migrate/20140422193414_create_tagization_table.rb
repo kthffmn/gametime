@@ -3,6 +3,8 @@ class CreateTagizationTable < ActiveRecord::Migration
     create_table :tagizations, :id => false do |t|
       t.column :game_id, :integer
       t.column :tag_id, :integer
+      
+      t.timestamps
     end
   end
 end

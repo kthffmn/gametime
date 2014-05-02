@@ -1,8 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Instructions:</strong>
-  <%= @game.instructions %>
+  <strong>Name:</strong>
+  <%= @game.most_popular_name.content %>
+</p>
+
+<p>
+  <% if @game.less_popular_names %>
+    <strong>Also known as:</strong>
+    <ul>
+      <%= @game.less_popular_names.each do |name|%>
+        <li>name.content</li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @game.description %>
 </p>
 
 <p>
@@ -45,5 +61,53 @@
   <%= @game.adulthood %>
 </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<p>
+  <strong>Type:</strong>
+  <%= @game.is_an_exercise ? "exercise" : "game" %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <ul>
+    <% @game.tags.each do |tag| %>
+      <li><%= tag.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Variations:</strong>
+  <ul>
+    <% if @game.variations.length > 0 %>
+      <% @game.variations.each do |var| %>
+        <li><%= var.content %></li>
+      <% end %>
+    <% else %>
+      <li>none</li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Tips:</strong>
+  <ul>
+    <% if @game.tips.length > 0 %>
+      <% @game.tips.each do |tip| %>
+        <li><%= tip.content %></li>
+      <% end %>
+    <% else %>
+      <li>none</li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>See also:</strong>
+  <ul>
+    <% for relationship in @game.relationships %>
+      <li>
+        <a href="/games/<%= relationship.relation.id %>"><%= relationship.relation.most_popular_name.content %></a>
+      </li>
+    <% end %>
+  </ul>
+</p>

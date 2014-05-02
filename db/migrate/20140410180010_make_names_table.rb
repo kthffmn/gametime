@@ -4,7 +4,7 @@ class MakeNamesTable < ActiveRecord::Migration
       t.string :content
       t.integer :popularity, :default => 0
       t.integer :game_id
-      
+
       t.timestamps
     end
   end

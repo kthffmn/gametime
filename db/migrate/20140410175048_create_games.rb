@@ -13,8 +13,7 @@ class CreateGames < ActiveRecord::Migration
       t.boolean :high_school
       t.boolean :college
       t.boolean :adulthood
-      t.boolean :exercise
-      t.string  :slug
+      t.boolean :is_an_exercise
 
       t.timestamps
     end

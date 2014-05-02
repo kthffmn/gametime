@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     @games = Game.all
     respond_to do |format|
       format.html
-      format.json { render :json => @games.to_json(:include => :names)}
+      format.json { render :json => @games.to_json(:include => [:names, :variations, :tags, :tips])}
     end
   end
 
@@ -15,6 +15,10 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
     @name = @game.names.build
+    @tagizatons = @game.tagizations.build
+    @tag = @tagizatons.build_tag
+    @relationships = @game.relationships.build
+    @relation = @relationships.build_relation
   end
 
   def edit
@@ -22,6 +26,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    binding.pry
     @game = Game.new(game_params)
 
     respond_to do |format|
@@ -61,6 +66,18 @@ class GamesController < ApplicationController
   private
 
     def game_params
-      params.require(:game).permit(:description, :maximum, :minimum, :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, :example_script, names_attributes: [:content, :game_id, :id, :_destroy, :popularity])
+      params.require(:game).permit( 
+                                    :description, 
+                                    :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, 
+                                    :example_script,
+                                    :id,
+                                    :is_an_exercise,
+                                    :maximum, :minimum, 
+                                    names_attributes: [:content, :game_id, :id, :_destroy, :popularity], 
+                                    relationships_attributes: [:id, :relation_id],
+                                    tagizations_attributes: [:id, :tag_id],
+                                    tips_attributes: [:content, :id, :game_id],
+                                    variation_attributes: [:content, :id, :game_id]
+                                  )
     end
 end
