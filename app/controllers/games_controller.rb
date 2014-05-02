@@ -26,9 +26,11 @@ class GamesController < ApplicationController
   end
 
   def create
-    binding.pry
-    @game = Game.new(game_params)
-
+    clean_params = game_params.reject{|k,v| k == "tagizations_attributes"}
+    @game = Game.new(clean_params)
+    game_params["tagizations_attributes"]["0"]["tag_id"][1..-1].each do |tag_id|
+      @game.tags << Tag.find(tag_id)
+    end
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -67,17 +69,16 @@ class GamesController < ApplicationController
 
     def game_params
       params.require(:game).permit( 
-                                    :description, 
-                                    :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, 
+                                    :description,
+                                    :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood,
                                     :example_script,
-                                    :id,
                                     :is_an_exercise,
                                     :maximum, :minimum, 
-                                    names_attributes: [:content, :game_id, :id, :_destroy, :popularity], 
-                                    relationships_attributes: [:id, :relation_id, :game_id],
-                                    tagizations_attributes: [:game_id, :tag_id],
-                                    tips_attributes: [:content, :id, :game_id],
-                                    variation_attributes: [:content, :id, :game_id]
+                                    names_attributes: [:content, :game_id, :_destroy, :popularity],
+                                    relationships_attributes: [:relation_id, :game_id],
+                                    tagizations_attributes: [game_id: [], tag_id: []],
+                                    tips_attributes: [:content, :game_id],
+                                    variation_attributes: [:content, :game_id]
                                   )
     end
 end

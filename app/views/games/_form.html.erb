@@ -22,7 +22,7 @@
   <div class="field">
     <%= f.fields_for :tagizations do |tz| %>
       <%= tz.label :tag_id, "Add Tag" %>
-      <%= tz.collection_select :tag_id, Tag.all, :id, :name, :include_blank => "select tag" %>
+      <%= tz.collection_select :tag_id, Tag.all, :id, :name, {}, {multiple:true} %>
     <% end %>
   </div>
 

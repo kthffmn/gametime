@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @game.most_popular_name.content %>
+  <strong><%= @game.most_popular_name.content %></strong>
+  (<%= @game.is_an_exercise ? "exercise" : "game" %>)
 </p>
 
 <p>
@@ -22,44 +22,45 @@
 </p>
 
 <p>
-  <strong>Maximum:</strong>
-  <%= @game.maximum %>
+  <strong>Number of Players:</strong>
+    <%= @game.minimum %> - <%= @game.maximum %>
 </p>
 
-<p>
-  <strong>Minimum:</strong>
-  <%= @game.minimum %>
-</p>
+<% if @game.early_childhood && @game.elementary_school && @game.middle_school && @game.high_school && @game.college && @game.adulthood %>
+  <p><strong>Age Group:</strong>
+    All ages
+  </p>
+<% else %>
+  <p>
+    <strong>Early childhood:</strong>
+    <%= @game.early_childhood %>
+  </p>
 
-<p>
-  <strong>Early childhood:</strong>
-  <%= @game.early_childhood %>
-</p>
+  <p>
+    <strong>Elementary school:</strong>
+    <%= @game.elementary_school %>
+  </p>
 
-<p>
-  <strong>Elementary school:</strong>
-  <%= @game.elementary_school %>
-</p>
+  <p>
+    <strong>Middle school:</strong>
+    <%= @game.middle_school %>
+  </p>
 
-<p>
-  <strong>Middle school:</strong>
-  <%= @game.middle_school %>
-</p>
+  <p>
+    <strong>High school:</strong>
+    <%= @game.high_school %>
+  </p>
 
-<p>
-  <strong>High school:</strong>
-  <%= @game.high_school %>
-</p>
+  <p>
+    <strong>College:</strong>
+    <%= @game.college %>
+  </p>
 
-<p>
-  <strong>College:</strong>
-  <%= @game.college %>
-</p>
-
-<p>
-  <strong>Adulthood:</strong>
-  <%= @game.adulthood %>
-</p>
+  <p>
+    <strong>Adulthood:</strong>
+    <%= @game.adulthood %>
+  </p>
+<% end %>
 
 <p>
   <strong>Type:</strong>
@@ -67,7 +68,7 @@
 </p>
 
 <p>
-  <strong>Tags:</strong>
+  <strong>Tags</strong>
   <ul>
     <% @game.tags.each do |tag| %>
       <li><%= tag.name %></li>
@@ -76,33 +77,25 @@
 </p>
 
 <p>
-  <strong>Variations:</strong>
+  <strong>Variations</strong>
   <ul>
-    <% if @game.variations.length > 0 %>
-      <% @game.variations.each do |var| %>
-        <li><%= var.content %></li>
-      <% end %>
-    <% else %>
-      <li>none</li>
+    <% @game.variations.each do |var| %>
+      <li><%= var.content %></li>
     <% end %>
   </ul>
 </p>
 
 <p>
-  <strong>Tips:</strong>
+  <strong>Tips</strong>
   <ul>
-    <% if @game.tips.length > 0 %>
-      <% @game.tips.each do |tip| %>
-        <li><%= tip.content %></li>
-      <% end %>
-    <% else %>
-      <li>none</li>
+    <% @game.tips.each do |tip| %>
+      <li><%= tip.content %></li>
     <% end %>
   </ul>
 </p>
 
 <p>
-  <strong>See also:</strong>
+  <strong>See also</strong>
   <ul>
     <% for relationship in @game.relationships %>
       <li>
