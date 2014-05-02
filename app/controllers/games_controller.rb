@@ -26,10 +26,10 @@ class GamesController < ApplicationController
   end
 
   def create
-    clean_params = game_params.reject{|k,v| k == "tagizations_attributes"}
+    clean_params = rm_tagz_attrs(game_params)
     @game = Game.new(clean_params)
-    game_params["tagizations_attributes"]["0"]["tag_id"][1..-1].each do |tag_id|
-      @game.tags << Tag.find(tag_id)
+    get_tag_ids(game_params).each do |id|
+      @game.tags << Tag.find(id)
     end
     respond_to do |format|
       if @game.save
