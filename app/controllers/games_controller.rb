@@ -74,8 +74,8 @@ class GamesController < ApplicationController
                                     :is_an_exercise,
                                     :maximum, :minimum, 
                                     names_attributes: [:content, :game_id, :id, :_destroy, :popularity], 
-                                    relationships_attributes: [:id, :relation_id],
-                                    tagizations_attributes: [:id, :tag_id],
+                                    relationships_attributes: [:id, :relation_id, :game_id],
+                                    tagizations_attributes: [:game_id, :tag_id],
                                     tips_attributes: [:content, :id, :game_id],
                                     variation_attributes: [:content, :id, :game_id]
                                   )
