@@ -20,18 +20,16 @@
   <%= link_to_add_fields "Add Name", f, :names %>
 
   <div class="field">
-    <%= f.fields_for :tagizations do |tagization_form| %>
-      <%= tagization_form.fields_for :tag do |tag_form| %>
-        <%= tag_form.label :name, "Tag" %>
-        <%= tag_form.collection_select :id, Tag.all, :id, :name, :include_blank => "select tag" %>
-      <% end %>
+    <%= f.fields_for :tagizations do |tz| %>
+      <%= tz.label :id, "Add Tag" %>
+      <%= tz.collection_select :tag_id, Tag.all, :id, :name, :include_blank => "select tag" %>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.fields_for :relationships do |relationship_form| %>
-        <%= relationship_form.label :relation_id, "Related Game:" %>
-        <%= relationship_form.collection_select :relation_id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)" %>
+    <%= f.fields_for :relationships do |r| %>
+      <%= r.label :relation_id, "Related Game:" %>
+      <%= r.collection_select :relation_id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)" %>
     <% end %>
   </div>
 

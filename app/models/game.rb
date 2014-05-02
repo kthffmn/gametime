@@ -42,10 +42,9 @@ class Game < ActiveRecord::Base
   has_many :variations
   accepts_nested_attributes_for :variations, allow_destroy: true
 
-  # validates description, max and min are numbers, greater than 1, max is equal to or greater than max and names
-  validates :description, :presence => true, :length => { :minimum => 10, :maximum => 1000, :message => "must be between 10-1000 characters"}
-  validates_numericality_of [:minimum, :maximum], :greater_than_or_equal_to => 1, only_integer: true
-  validates_with GameValidator
+  # validates :description, :presence => true, :length => { :minimum => 10, :maximum => 1000, :message => "must be between 10-1000 characters"}
+  # validates_numericality_of [:minimum, :maximum], :greater_than_or_equal_to => 1, only_integer: true
+  # validates_with GameValidator
     
   def sort_names_by_popularity
     self.names.sort{|a,b| a.popularity <=> b.popularity }

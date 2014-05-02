@@ -106,10 +106,8 @@
   <ul>
     <% for relationship in @game.relationships %>
       <li>
-        <%= relationship.relation.most_popular_name.content %>
+        <a href="/games/<%= relationship.relation.id %>"><%= relationship.relation.most_popular_name.content %></a>
       </li>
     <% end %>
   </ul>
 </p>
-
-<%= link_to 'Edit', edit_game_path(@game), :class => 'btn btn-primary' %>

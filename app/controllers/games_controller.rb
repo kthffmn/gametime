@@ -26,6 +26,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    binding.pry
     @game = Game.new(game_params)
 
     respond_to do |format|
@@ -69,13 +70,14 @@ class GamesController < ApplicationController
                                     :description, 
                                     :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood, 
                                     :example_script,
+                                    :id,
                                     :is_an_exercise,
                                     :maximum, :minimum, 
                                     names_attributes: [:content, :game_id, :id, :_destroy, :popularity], 
                                     relationships_attributes: [:id, :relation_id],
                                     tagizations_attributes: [:id, :tag_id],
-                                    tips_attributes: [:content, :game_id],
-                                    variation_attributes: [:content, :game_id]
+                                    tips_attributes: [:content, :id, :game_id],
+                                    variation_attributes: [:content, :id, :game_id]
                                   )
     end
 end
