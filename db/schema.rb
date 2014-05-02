@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140428165343) do
     t.integer "relation_id", null: false
   end
 
-  create_table "tagizations", force: true do |t|
+  create_table "tagizations", id: false, force: true do |t|
     t.integer  "game_id"
     t.integer  "tag_id"
     t.datetime "created_at"
