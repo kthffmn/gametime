@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= f.fields_for :tagizations do |tz| %>
-      <%= tz.label :id, "Add Tag" %>
+      <%= tz.label :tag_id, "Add Tag" %>
       <%= tz.collection_select :tag_id, Tag.all, :id, :name, :include_blank => "select tag" %>
     <% end %>
   </div>
@@ -29,7 +29,7 @@
   <div class="field">
     <%= f.fields_for :relationships do |r| %>
       <%= r.label :relation_id, "Related Game:" %>
-      <%= r.collection_select :relation_id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)" %>
+      <%= r.collection_select :relation_id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)"%>
     <% end %>
   </div>
 
