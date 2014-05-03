@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.text :description
       t.text :variations
-      t.text :example_script
+      t.text :example
       t.integer :maximum
       t.integer :minimum
       t.integer :likes, :default => 0

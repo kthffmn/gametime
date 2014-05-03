@@ -19,6 +19,10 @@ module ApplicationHelper
 
   def get_relation_ids(params)
     ids = params["relationships_attributes"]["0"]["relation_id"]
-    ids ?  return ids : false
+    if ids == true
+      return ids
+    else
+      return false
+    end
   end
 end

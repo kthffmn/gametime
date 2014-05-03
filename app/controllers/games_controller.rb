@@ -79,7 +79,7 @@ class GamesController < ApplicationController
       params.require(:game).permit( 
                                     :description,
                                     :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood,
-                                    :example_script,
+                                    :example,
                                     :id,
                                     :is_an_exercise,
                                     :maximum, :minimum, 

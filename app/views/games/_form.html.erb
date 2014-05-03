@@ -22,7 +22,7 @@
   <div class="field">
     <%= f.fields_for :tagizations do |tz| %>
       <%= tz.label :tag_id, "Add Tag" %>
-      <%= tz.collection_select :tag_id, Tag.all, :id, :name, {}, {multiple:true} %>
+      <%= tz.collection_select :tag_id, Tag.all, :id, :name, {}, { multiple:true } %>
     <% end %>
   </div>
 
@@ -36,8 +36,8 @@
   <div class="field"> <%= f.label :description %><br>
   <%= f.text_area :description %></div>
 
-  <div class="field"><%= f.label :example_script, "Example" %><br>
-  <%= f.text_area :example_script %></div>
+  <div class="field"><%= f.label :example, "Example" %><br>
+  <%= f.text_area :example %></div>
 
   <div class="field"><%= f.label :minimum, "Minimum number of players" %><br>
   <%= f.number_field :minimum %></div>
