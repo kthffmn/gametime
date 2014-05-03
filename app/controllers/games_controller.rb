@@ -26,11 +26,19 @@ class GamesController < ApplicationController
   end
 
   def create
-    clean_params = rm_tagz_attrs(game_params)
+    clean_params = rm_tags_and_relations(game_params)
     @game = Game.new(clean_params)
+
     get_tag_ids(game_params).each do |id|
       @game.tags << Tag.find(id)
     end
+
+    if relation_ids = get_relation_ids(game_params)
+      relation_ids.each do |id|
+        @game.relationships << Game.find(id)
+      end
+    end 
+  
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -44,7 +52,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-
+    binding.pry
     respond_to do |format|
       if @game.update(game_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
@@ -72,13 +80,17 @@ class GamesController < ApplicationController
                                     :description,
                                     :early_childhood, :elementary_school, :middle_school, :high_school, :college, :adulthood,
                                     :example_script,
+                                    :id,
                                     :is_an_exercise,
                                     :maximum, :minimum, 
-                                    names_attributes: [:content, :game_id, :_destroy, :popularity],
+
                                     relationships_attributes: [:relation_id, :game_id],
+
                                     tagizations_attributes: [game_id: [], tag_id: []],
-                                    tips_attributes: [:content, :game_id],
-                                    variation_attributes: [:content, :game_id]
+
+                                    names_attributes: [:content, :game_id, :_destroy, :popularity, :id],
+                                    tips_attributes: [:content, :game_id, :id],
+                                    variation_attributes: [:content, :game_id, :id]
                                   )
     end
 end
