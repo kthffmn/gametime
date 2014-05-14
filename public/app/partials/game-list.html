@@ -11,6 +11,7 @@
 
   <table class="table">
     <tr>
+      <th>Name</th>
       <th>Description</th>
       <th>Example</th>
       <th>Likes</th>
@@ -20,7 +21,7 @@
     <tr ng-repeat="game in games | filter: query | orderBy:orderProp" data-id={{game.id}}>
       <td>
         <a href="/games/{{game.id}}">
-          View Page
+          {{game.most_popular_name.content}}
         </a>
       </td>
       <td>{{game.description}}</td>

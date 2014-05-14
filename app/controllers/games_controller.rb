@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     @games = Game.all
     respond_to do |format|
       format.html
-      format.json { render :json => @games.to_json(:include => [:names, :variations, :tags, :tips])}
+      format.json { render :json => @games.to_json(:include => [:most_popular_name, :variations, :tags, :tips])}
     end
   end
 
@@ -51,10 +51,15 @@ class GamesController < ApplicationController
   end
 
   def update
+    clean_params = rm_tags_and_relations(game_params)
     @game = Game.find(params[:id])
+    @tags = @game.tags
+    @relations = @game.relationships
+
     binding.pry
+
     respond_to do |format|
-      if @game.update(game_params)
+      if @game.update(clean_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         # format.json { render :show, status: :ok, location: @game }
       else
