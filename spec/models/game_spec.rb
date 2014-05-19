@@ -62,4 +62,5 @@ describe Game do
   its "method to see if the exercise/game is appropriate for all ages results in false" do
     expect(second_game.all_ages?).to be(false)
   end
+
 end
