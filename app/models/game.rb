@@ -30,11 +30,10 @@ class Game < ActiveRecord::Base
 
   has_many :relationships
   has_many :relations, :through => :relationships
-  accepts_nested_attributes_for :relationships
 
   has_many :tagizations
   has_many :tags, :through => :tagizations
-  accepts_nested_attributes_for :tagizations
+  accepts_nested_attributes_for :tags
 
   has_many :tips
   accepts_nested_attributes_for :tips, allow_destroy: true
