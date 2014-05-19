@@ -8,5 +8,6 @@ describe "games/index" do
   it "renders a list of games" do
     render
     rendered.should match(/Get into a circle, with one person in the middle. Sing bunny bunny, etc./)
+    rendered.should match(/This is a totally different kind of game. Promise./)
   end
 end

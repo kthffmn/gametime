@@ -44,7 +44,7 @@ FactoryGirl.define do
   end
 
   factory :second_game, class: Game do |g|
-    g.description "Get into a circle, with one person in the middle. Sing bunny bunny, etc."
+    g.description "This is a totally different kind of game. Promise."
     g.example "Bunny bunny bunny toky toky toky"
     g.maximum 20
     g.minimum 6
