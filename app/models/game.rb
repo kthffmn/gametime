@@ -65,4 +65,8 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def all_ages?
+    self.early_childhood && self.elementary_school && self.middle_school && self.high_school && self.college && self.adulthood ? true : false
+  end
+  
 end

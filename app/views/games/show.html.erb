@@ -31,7 +31,7 @@
     <%= @game.minimum %> - <%= @game.maximum %>
 </p>
 
-<% if @game.early_childhood && @game.elementary_school && @game.middle_school && @game.high_school && @game.college && @game.adulthood %>
+<% if @game.all_ages? %>
   <p><strong>Age Group:</strong>
     All ages
   </p>
