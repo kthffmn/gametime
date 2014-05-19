@@ -58,8 +58,8 @@ class Game < ActiveRecord::Base
   end
 
   def less_popular_names
-    if sort_names_by_popularity.count > 1 
-      names[1..-1]
+    if self.names.count > 1 
+      sort_names_by_popularity[1..-1]
     else
       false
     end
