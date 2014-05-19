@@ -9,8 +9,8 @@
   <% if @game.less_popular_names %>
     <strong>Also known as:</strong>
     <ul>
-      <%= @game.less_popular_names.each do |name|%>
-        <li>name.content</li>
+      <% @game.less_popular_names.each do |name|%>
+        <li><%= name.content %></li>
       <% end %>
     </ul>
   <% end %>
@@ -66,11 +66,6 @@
     <%= @game.adulthood %>
   </p>
 <% end %>
-
-<p>
-  <strong>Type:</strong>
-  <%= @game.is_an_exercise ? "exercise" : "game" %>
-</p>
 
 <p>
   <strong>Tags</strong>

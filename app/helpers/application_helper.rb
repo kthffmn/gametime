@@ -7,22 +7,4 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "white-font add_fields btn btn-primary", data: {id: id, fields: fields.gsub("\n", "")})
   end
-
-  def rm_tags_and_relations(params)
-    no_tagz = params.reject{|k,v| k == "tagizations_attributes"}
-    no_tagz.reject{|k,v| k == "relationships_attributes"}
-  end
-
-  def get_tag_ids(params)
-    params["tagizations_attributes"]["0"]["tag_id"][1..-1]
-  end
-
-  def get_relation_ids(params)
-    ids = params["relationships_attributes"]["0"]["relation_id"]
-    if ids == true
-      return ids
-    else
-      return false
-    end
-  end
 end

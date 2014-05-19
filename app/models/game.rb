@@ -47,7 +47,7 @@ class Game < ActiveRecord::Base
   validates_with GameValidator
     
   def sort_names_by_popularity
-    self.names.sort{|a,b| a.popularity <=> b.popularity }
+    self.names.sort{|a,b| b.popularity <=> a.popularity }
   end
 
   def most_popular_name
@@ -55,7 +55,7 @@ class Game < ActiveRecord::Base
   end
 
   def most_popular_name_content
-    most_popular_name.content
+    sort_names_by_popularity.first.content
   end
 
   def less_popular_names

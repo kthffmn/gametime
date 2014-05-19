@@ -20,17 +20,17 @@
   <%= link_to_add_fields "Add Name", f, :names %>
 
   <div class="field">
-    <%= f.fields_for :tagizations do |tz| %>
-      <%= tz.label :tag_id, "Add Tag" %>
-      <%= tz.collection_select :tag_id, Tag.all, :id, :name, {}, { multiple:true } %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br>
+    <%= f.fields_for :tags do |tag_form| %>
+      <p>Add a new tag:</p><br>
+      <%= tag_form.label :name %>
+      <%= tag_form.text_field :name %>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.fields_for :relationships do |r| %>
-      <%= r.label :relation_id, "Related Game:" %>
-      <%= r.collection_select :relation_id, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)"%>
-    <% end %>
+    <%= f.label :relation_ids, "Related Game:" %>
+    <%= f.collection_check_boxes :relation_ids, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)"%>
   </div>
 
   <div class="field"> <%= f.label :description %><br>
