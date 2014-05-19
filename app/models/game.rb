@@ -58,11 +58,11 @@ class Game < ActiveRecord::Base
   end
 
   def less_popular_names
-    if self.names.count > 1 
-      sort_names_by_popularity[1..-1]
-    else
-      false
-    end
+    self.multiple_names? ? sort_names_by_popularity[1..-1] : false
+  end
+
+  def multiple_names?
+    self.names.count > 1 ? true : false
   end
 
   def all_ages?
