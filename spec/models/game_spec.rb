@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Game do
   subject(:game) {FactoryGirl.create(:game)}
+  subject(:second_game) {FactoryGirl.create(:second_game)}
   subject(:invalid_num_game) {FactoryGirl.build(:invalid_game_max)}
   subject(:invalid_name_game) {FactoryGirl.build(:invalid_game_names)}
   subject(:no_name) {FactoryGirl.build(:no_name)}
@@ -42,4 +43,23 @@ describe Game do
     expect(zero_pop_value).to_not be_valid
   end
 
+  its "method to see if a game has more than one name works" do
+    expect(game.multiple_names?).to be(true)
+  end
+
+  its "method to find the most popular name results in the most popular name" do
+    expect(game.most_popular_name.content).to eq("More Popular")
+  end
+
+  its "method to find the less popular name results in the less name" do
+    expect(game.less_popular_names.first.content).to eq("Middle-ish Popularity")
+  end
+
+  its "method to see if the exercise/game is appropriate for all ages results in true" do
+    expect(game.all_ages?).to be(true)
+  end
+
+  its "method to see if the exercise/game is appropriate for all ages results in false" do
+    expect(second_game.all_ages?).to be(false)
+  end
 end

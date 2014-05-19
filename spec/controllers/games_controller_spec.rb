@@ -23,25 +23,30 @@ describe GamesController do
   # This should return the minimal set of attributes required to create a valid
   # Game. As you add validations to Game, be sure to
   # adjust the attributes here as well.
-  before(:each) do
-    @game = FactoryGirl.create(:game)
+  let(:valid_attributes) do
+    {  
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut adipiscing nisi.",
+      early_childhood:1,
+      elementary_school:1,
+      middle_school:1,
+      high_school:1,
+      college:1,
+      adulthood:1,
+      example: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam magna purus, porta.",
+      is_an_exercise:1,
+      maximum:12,
+      minimum:4,
+      names_attributes:{
+        0 => {content:"NumbaOne", popularity:4},
+        1 => {content:"NumbaTwo", popularity:1}
+      }
+    }
   end
 
-  let(@game = Game.build(
-    :description => "Get into a circle, with one person in the middle. Sing bunny bunny, etc.",
-    :example => "Bunny bunny bunny toky toky toky",
-    :maximum => 20, :minimum => 6,
-    :early_childhood => true, :elementary_school => false, 
-    :middle_school => true, :high_school => true, 
-    :college => true, :adulthood => true)
-  @game.names << Name.create(:content => "Popular Name", :popularity => 4)
-  @game.names << Name.create(:content => "Less Popular Name", :popularity => 2)
-  @game.save!)
-  
-  end    
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # GamesController. Be sure to keep this updated too.
+  let(:valid_session) { {} }
 
   describe "GET index" do
     it "assigns all games as @games" do
@@ -74,43 +79,6 @@ describe GamesController do
     end
   end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Game" do
-        expect {
-          post :create, {:game => valid_attributes}, valid_session
-        }.to change(Game, :count).by(1)
-      end
-
-      it "assigns a newly created game as @game" do
-        post :create, {:game => valid_attributes}, valid_session
-        assigns(:game).should be_a(Game)
-        assigns(:game).should be_persisted
-      end
-
-      it "redirects to the created game" do
-        post :create, {:game => valid_attributes}, valid_session
-        response.should redirect_to(Game.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved game as @game" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Game.any_instance.stub(:save).and_return(false)
-        post :create, {:game => {  }}, valid_session
-        assigns(:game).should be_a_new(Game)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Game.any_instance.stub(:save).and_return(false)
-        post :create, {:game => {  }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested game" do
@@ -119,8 +87,8 @@ describe GamesController do
         # specifies that the Game created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Game.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => game.to_param, :game => { "these" => "params" }}, valid_session
+        Game.any_instance.should_receive(:update).with({"description" => "this is a new description" })
+        put :update, {:id => game.to_param, :game => { :description => "this is a new description" }}, valid_session
       end
 
       it "assigns the requested game as @game" do
@@ -141,7 +109,7 @@ describe GamesController do
         game = Game.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Game.any_instance.stub(:save).and_return(false)
-        put :update, {:id => game.to_param, :game => {  }}, valid_session
+        put :update, {:id => game.to_param, :game => { :description => "2short" }}, valid_session
         assigns(:game).should eq(game)
       end
 
@@ -149,7 +117,7 @@ describe GamesController do
         game = Game.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Game.any_instance.stub(:save).and_return(false)
-        put :update, {:id => game.to_param, :game => {  }}, valid_session
+        put :update, {:id => game.to_param, :game => { :description => "2short" }}, valid_session
         response.should render_template("edit")
       end
     end
