@@ -20,7 +20,7 @@ jQuery ->
     $('form').on 'click', '.add-a-tag', (event) ->
       if $(this).hasClass("active")
         $('.new-tag-form').hide()
-        $('#game_tags_attributes_0_name').val("");
+        $('#game_tags_attributes_0_name').val(undefined);
         $(this).removeClass("active")
         $(this).text("Make new tag")
       else

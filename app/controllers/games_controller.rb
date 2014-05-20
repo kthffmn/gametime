@@ -15,8 +15,6 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
     @game.names.build
-    @game.tags.build
-    @game.relations.build
   end
 
   def edit
@@ -25,6 +23,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    binding.pry
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }

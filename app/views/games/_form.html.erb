@@ -22,7 +22,7 @@
   <div class="field">
     <%= f.label :tags %>
     <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple:true} %><br>
-    <%= f.fields_for :tags do |tag_form| %>
+    <%= f.fields_for [@game, Tag.new] do |tag_form| %>
       <div class="new-tag-form"> 
         <%= tag_form.label :name %>
         <%= tag_form.text_field :name %>
