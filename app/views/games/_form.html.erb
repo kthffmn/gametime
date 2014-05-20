@@ -20,12 +20,16 @@
   <%= link_to_add_fields "Add Name", f, :names %>
 
   <div class="field">
+    <%= f.label :tags %>
     <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple:true} %><br>
     <%= f.fields_for :tags do |tag_form| %>
-      <p>Add a new tag:</p><br>
-      <%= tag_form.label :name %>
-      <%= tag_form.text_field :name %>
+      <div class="new-tag-form"> 
+        <%= tag_form.label :name %>
+        <%= tag_form.text_field :name %>
+      </div> 
     <% end %>
+    <div class="add-a-tag btn btn-primary">Make new tag</div>
+
   </div>
 
   <div class="field">
