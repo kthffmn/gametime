@@ -20,7 +20,7 @@
   <%= link_to_add_fields "Add Name", f, :names %>
 
   <div class="field">
-    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br>
+    <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple:true} %><br>
     <%= f.fields_for :tags do |tag_form| %>
       <p>Add a new tag:</p><br>
       <%= tag_form.label :name %>

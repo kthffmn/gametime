@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+
+  $('#game_tag_ids').chosen()
+
   $(document).ready ->
 
     $('.remove_fields').first().hide()

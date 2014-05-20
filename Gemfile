@@ -19,7 +19,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 # For the token fields for tags
-gem 'chosen-rails', :github => "anicholson/chosen-rails"
+gem 'chosen-rails'
 
 
 # Use ActiveModel has_secure_password
