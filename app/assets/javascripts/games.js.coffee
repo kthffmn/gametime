@@ -5,6 +5,7 @@
 jQuery ->
 
   $('#game_tag_ids').chosen()
+  $('#game_relation_ids').chosen()
 
   $(document).ready ->
 

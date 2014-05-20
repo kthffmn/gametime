@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :relation_ids, "Related Game:" %>
-    <%= f.collection_check_boxes :relation_ids, Game.all, :id, :most_popular_name_content, :include_blank => "select game (optional)"%>
+    <%= f.collection_select :relation_ids, Game.all, :id, :most_popular_name_content, {}, {multiple:true} %>
   </div>
 
   <div class="field"> <%= f.label :description %><br>
