@@ -9,6 +9,10 @@ jQuery ->
 
   $(document).ready ->
 
+    $("#game_is_an_exercise").iphoneStyle
+      checkedLabel: "EXERCISE"
+      uncheckedLabel: "GAME"
+
     $('.remove_fields').first().hide()
 
     if $('.remove_fields').filter(':visible').length > 3
