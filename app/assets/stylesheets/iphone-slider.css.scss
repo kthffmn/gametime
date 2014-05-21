@@ -4,7 +4,10 @@
 //= depend_on_asset "iphone-style-checkboxes/slider_center.png"
 //= depend_on_asset "iphone-style-checkboxes/slider_left.png"
 //= depend_on_asset "iphone-style-checkboxes/slider_right.png"
+//= depend_on_asset "iphone-style-checkboxes/trial.png"
 
+//= depend_on_asset "ios-style-checkboxes/trial.png"
+//= depend_on_asset "ios-style-checkboxes/trial.png"
 //= depend_on_asset "ios-style-checkboxes/on.png"
 //= depend_on_asset "ios-style-checkboxes/off.png"
 //= depend_on_asset "ios-style-checkboxes/slider.png"
@@ -49,18 +52,20 @@
 
 label.iPhoneCheckLabelOn {
   color: white;
-  background: asset-url('images/iphone-style-checkboxes/on.png?1284697268') no-repeat;
+  background: image-url('iphone-style-checkboxes/on.png?1284697268') no-repeat;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   left: 0;
   padding-top: 5px; }
   label.iPhoneCheckLabelOn span {
     padding-left: 8px; }
+
 label.iPhoneCheckLabelOff {
-  color: #8b8b8b;
-  background: asset-url('images/iphone-style-checkboxes/off.png?1284697268') no-repeat right 0;
-  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
+  color: white;
+  background: image-url('iphone-style-checkboxes/trial.png') no-repeat right 0;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   text-align: right;
-  right: 0; }
+  right: 0;
+  padding-top: 5px; }
   label.iPhoneCheckLabelOff span {
     padding-right: 8px; }
 
@@ -72,19 +77,19 @@ label.iPhoneCheckLabelOff {
   top: 0;
   left: 0;
   width: 0;
-  background: asset-url('images/iphone-style-checkboxes/slider_left.png?1284697268') no-repeat;
+  background: image-url('iphone-style-checkboxes/slider_left.png?1284697268') no-repeat;
   padding-left: 3px; }
 
 .iPhoneCheckHandleRight {
   height: 100%;
   width: 100%;
   padding-right: 3px;
-  background: asset-url('images/iphone-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
+  background: image-url('iphone-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
 
 .iPhoneCheckHandleCenter {
   height: 100%;
   width: 100%;
-  background: asset-url('images/iphone-style-checkboxes/slider_center.png?1284697268'); }
+  background: image-url('iphone-style-checkboxes/slider_center.png?1284697268'); }
 
 .iOSCheckContainer {
   position: relative;
@@ -122,7 +127,7 @@ label.iPhoneCheckLabelOff {
 
 label.iOSCheckLabelOn {
   color: white;
-  background: asset-url('images/ios-style-checkboxes/on.png?1284697268') no-repeat;
+  background: image-url('ios-style-checkboxes/on.png?1284697268') no-repeat;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   left: 0;
   padding-top: 5px; }
@@ -130,7 +135,7 @@ label.iOSCheckLabelOn {
     padding-left: 8px; }
 label.iOSCheckLabelOff {
   color: #8b8b8b;
-  background: asset-url('images/ios-style-checkboxes/off.png?1284697268') no-repeat right 0;
+  background: image-url('ios-style-checkboxes/trial.png?1284697268') no-repeat right 0;
   text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
   text-align: right;
   right: 0; }
@@ -145,16 +150,16 @@ label.iOSCheckLabelOff {
   top: 0;
   left: 0;
   width: 0;
-  background: asset-url('images/ios-style-checkboxes/slider_left.png?1284697268') no-repeat;
+  background: image-url('ios-style-checkboxes/slider_left.png?1284697268') no-repeat;
   padding-left: 3px; }
 
 .iOSCheckHandleRight {
   height: 100%;
   width: 100%;
   padding-right: 3px;
-  background: asset-url('images/ios-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
+  background: image-url('ios-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
 
 .iOSCheckHandleCenter {
   height: 100%;
   width: 100%;
-  background: asset-url('images/ios-style-checkboxes/slider_center.png?1284697268'); }
+  background: image-url('ios-style-checkboxes/slider_center.png?1284697268'); }

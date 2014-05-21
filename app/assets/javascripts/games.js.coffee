@@ -13,6 +13,8 @@ jQuery ->
       checkedLabel: "EXERCISE"
       uncheckedLabel: "GAME"
 
+    $(".iPhoneCheckHandle").css("width", "96")
+    
     $('.remove_fields').first().hide()
 
     if $('.remove_fields').filter(':visible').length > 3
