@@ -14,3 +14,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore testing coverage
+coverage/
+
+# ignore Desktop Services Stores
+.DS_Store
+public/img/.DS_Store
+vendor/assets/images/.DS_Store
+vendor/assets/javascripts/.DS_Store
+vendor/assets/stylesheets/.DS_Store
+
