@@ -14,7 +14,7 @@ jQuery ->
       uncheckedLabel: "GAME"
 
     $(".iPhoneCheckHandle").css("width", "96")
-    
+
     $('.remove_fields').first().hide()
 
     if $('.remove_fields').filter(':visible').length > 3
@@ -69,5 +69,3 @@ jQuery ->
         $("#game_all_ages").prop "checked", false
       if $("#game_early_childhood").is(':checked') and $("#game_elementary_school").is(':checked') and $("#game_middle_school").is(':checked') and $("#game_high_school").is(':checked') and $("#game_college").is(':checked') and $("#game_adulthood").is(':checked')
         $("#game_all_ages").prop "checked", true
-
-      
