@@ -14,6 +14,10 @@ A group and and exercise app for improvisors.
 * ~~Make strong_params allow for users to make a new tag from game form~~
 * ~~Add way to add multiple tags to game form~~
 * Make homepage
+* Add a [Wrap Bootstrap](https://wrapbootstrap.com/themes) theme
+* Add variations to game form
+* Add tips to game form
+* Add search feature for faster browsing
 
 ### 2. Angular
 * Style angular
@@ -23,11 +27,7 @@ A group and and exercise app for improvisors.
 ### 3. General
 * Make icon
 * Decide on name
-* Add a [Wrap Bootstrap](https://wrapbootstrap.com/themes) theme
-* Add variations to game form
-* Add tips to game form
-* Add search feature for faster browsing
-
+* Santize scraped data [here](https://github.com/kthffmn/sanitization_practice)
 
 ## License
 
