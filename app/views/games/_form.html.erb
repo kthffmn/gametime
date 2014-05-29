@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= f.label :tags %>
-    <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple:true} %><br>
+    <%= f.collection_select :tag_ids, Tag.order("name"), :id, :name, {}, {multiple:true} %><br>
     <%= f.fields_for [@game, Tag.new] do |tag_form| %>
       <div class="new-tag-form"> 
         <%= tag_form.label :name %>
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :relation_ids, "Related Game:" %>
-    <%= f.collection_select :relation_ids, Game.all, :id, :most_popular_name_content, {}, {multiple:true} %>
+    <%= f.collection_select :relation_ids, @games, :id, :most_popular_name_content, {}, {multiple:true} %>
   </div>
 
   <div class="field"> <%= f.label :description %><br>
