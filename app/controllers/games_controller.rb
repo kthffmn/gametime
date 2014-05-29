@@ -15,6 +15,7 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
     @game.names.build
+    @games = Game.all.sort{|a,b|a.most_popular_name_content.downcase<=>b.most_popular_name_content.downcase}
   end
 
   def edit
