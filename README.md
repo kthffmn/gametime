@@ -18,6 +18,7 @@ A group and and exercise app for improvisors.
 * Add variations to game form
 * Add tips to game form
 * Add search feature for faster browsing
+* Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)
 
 ### 2. Angular
 * Style angular
