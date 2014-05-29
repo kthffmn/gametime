@@ -70,7 +70,7 @@ class GamesController < ApplicationController
                                     :maximum, :minimum, 
                                     :relation_ids => [],
                                     :tag_ids => [],
-                                    :tags_attributes => [:id, :name],
+                                    :tags_attributes => [:id, :name, :_destroy],
                                     :names_attributes => [:content, :game_id, :_destroy, :popularity, :id],
                                     :tips_attributes => [:content, :game_id, :id],
                                     :variation_attributes => [:content, :game_id, :id]
