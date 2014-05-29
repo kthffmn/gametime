@@ -24,6 +24,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    binding.pry
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -68,11 +69,11 @@ class GamesController < ApplicationController
                                     :is_an_exercise,
                                     :maximum, :minimum, 
                                     :relation_ids => [],
-                                    :tag_ids => [], 
+                                    :tag_ids => [],
                                     :tags_attributes => [:id, :name],
-                                    names_attributes: [:content, :game_id, :_destroy, :popularity, :id],
-                                    tips_attributes: [:content, :game_id, :id],
-                                    variation_attributes: [:content, :game_id, :id]
+                                    :names_attributes => [:content, :game_id, :_destroy, :popularity, :id],
+                                    :tips_attributes => [:content, :game_id, :id],
+                                    :variation_attributes => [:content, :game_id, :id]
                                   )
     end
 end
