@@ -23,17 +23,6 @@ jQuery ->
     unless $('#game_names_attributes_1_content').length > 0
       $('#game_names_attributes_0_popularity').first().hide()
 
-    $('form').on 'click', '.add-a-tag', (event) ->
-      if $(this).hasClass("active")
-        $('.new-tag-form').hide()
-        $('#game_tags_attributes_0_name').val(undefined);
-        $(this).removeClass("active")
-        $(this).text("Make new tag")
-      else
-        $('.new-tag-form').show()
-        $(this).text("Remove tag")
-        $(this).addClass("active")
-
     $('form').on 'click', '.remove_fields', (event) ->
       $(this).prev('input[type=hidden]').val('1')
       $(this).closest('fieldset').hide()
