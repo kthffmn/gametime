@@ -21,7 +21,7 @@ A group and and exercise app for improvisors.
 
 ### 2. Angular
 * Style angular
-* Fix navbar in Angular view so that it's responsive
+* Fix navbar in Angular view so that it's responsive, [seems to be an error in event propogation](https://github.com/angular/angular.js/issues/1674)
 * Make links in nav-bar active when appropriate in Angular, see [StackOverflow's solution](http://stackoverflow.com/questions/16199418/how-do-i-implement-the-bootstrap-navbar-active-class-with-angular-js)
 
 ### 3. General
