@@ -20,12 +20,12 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
-    @games = Game.all.sort{|a,b|a.most_popular_name_content.downcase<=>b.most_popular_name_content.downcase}
+    filtered_games = Game.all.collect{|g| g if g.id.to_s != params[:id]}.compact
+    @games = filtered_games.sort{|a,b|a.most_popular_name_content.downcase<=>b.most_popular_name_content.downcase}
   end
 
   def create
     @game = Game.new(game_params)
-    binding.pry
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
