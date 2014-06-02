@@ -1,10 +1,6 @@
 class GameValidator < ActiveModel::Validator
   def validate(game)
 
-    if game.minimum < 1 || game.maximum < 1
-       game.errors[:base] << "The minimum and maximum must be at least 1."
-    end
-
     if game.minimum > game.maximum
       game.errors[:base] << "Minimum must be less than or equal to maximum."
     end
@@ -48,6 +44,7 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :variations, allow_destroy: true
 
   validates :description, :presence => true, :length => { :minimum => 10, :maximum => 1000, :message => "must be between 10-1000 characters"}
+  validates_numericality_of [:minimum, :maximum], :greater_than_or_equal_to => 1, only_integer: true
   validates_with GameValidator
     
   def sort_names_by_popularity
