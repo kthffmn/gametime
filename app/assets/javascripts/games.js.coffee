@@ -4,10 +4,10 @@
 
 jQuery ->
 
-  $('#game_tag_ids').chosen()
-  $('#game_relation_ids').chosen()
-
   $(document).ready ->
+
+    $('#game_tag_ids').chosen()
+    $('#game_relation_ids').chosen()
 
     $("#game_is_an_exercise").iphoneStyle
       checkedLabel: "EXERCISE"
@@ -37,8 +37,9 @@ jQuery ->
         time = new Date().getTime() 
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
-        $('#game_names_attributes_0_popularity').show()
-        event.preventDefault()
+        if($(this).text() == "Add Name")
+          $('#game_names_attributes_0_popularity').show()
+          event.preventDefault()
       else if $('.remove_fields').filter(':visible').length >= 3
         time = new Date().getTime()
         regexp = new RegExp($(this).data('id'), 'g')
