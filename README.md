@@ -22,11 +22,13 @@ A group and and exercise app for improvisors.
 * Fix now screwed up coffeescript for new game form
 * Add users that authenticate through [Facebook's omniauth using Devise](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
 * Use users' FB profile photos for their profiles
+* Add "like" functionality to games
 
 ### 2. Angular
 * Style angular
 * Fix navbar in Angular view so that it's responsive, [seems to be an error in event propogation](https://github.com/angular/angular.js/issues/1674)
 * Make links in nav-bar active when appropriate in Angular, see [StackOverflow's solution](http://stackoverflow.com/questions/16199418/how-do-i-implement-the-bootstrap-navbar-active-class-with-angular-js)
+* Add other methods to order/search through results (by tag, popularity, etc.)
 
 ### 3. General
 * Make [icon](http://designexemplars.files.wordpress.com/2011/06/thonet-bentwood-chair.jpg)
