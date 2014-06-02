@@ -23,7 +23,7 @@ A group and and exercise app for improvisors.
 * Add users that authenticate through [Facebook's omniauth using Devise](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
 * Use users' FB profile photos for their profiles
 * Add "like" functionality to games
-* Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" error
+* Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error
 
 ### 2. Angular
 * Style angular
