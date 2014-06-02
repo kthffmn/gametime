@@ -27,7 +27,7 @@ A group and and exercise app for improvisors.
 * Make links in nav-bar active when appropriate in Angular, see [StackOverflow's solution](http://stackoverflow.com/questions/16199418/how-do-i-implement-the-bootstrap-navbar-active-class-with-angular-js)
 
 ### 3. General
-* Make icon
+* Make [icon](http://designexemplars.files.wordpress.com/2011/06/thonet-bentwood-chair.jpg)
 * Decide on name
 * Santize scraped data [here](https://github.com/kthffmn/sanitization_practice)
 
