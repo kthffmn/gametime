@@ -20,7 +20,7 @@ A group and and exercise app for improvisors.
 * Add tips to game form
 * Add search feature for faster browsing
 * Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)
-* Add users that authenticate through [Facebook's omniauth using Devise](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
+* Add users that authenticate through [Facebook](http://railscasts.com/episodes/360-facebook-authentication)
 * Use users' FB profile photos for their profiles
 * Add "like" functionality to games
 * Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error
