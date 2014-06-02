@@ -26,6 +26,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @games = Game.all.sort{|a,b|a.most_popular_name_content.downcase<=>b.most_popular_name_content.downcase}
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
