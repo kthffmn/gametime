@@ -20,6 +20,8 @@ A group and and exercise app for improvisors.
 * Add search feature for faster browsing
 * Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)
 * Fix now screwed up coffeescript for new game form
+* Add users that authenticate through [Facebook's omniauth using Devise](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
+* Use users' FB profile photos for their profiles
 
 ### 2. Angular
 * Style angular
@@ -29,7 +31,7 @@ A group and and exercise app for improvisors.
 ### 3. General
 * Make [icon](http://designexemplars.files.wordpress.com/2011/06/thonet-bentwood-chair.jpg)
 * Decide on name
-* Santize scraped data [here](https://github.com/kthffmn/sanitization_practice)
+* Santize scraped data [here](https://github.com/kthffmn/sanitization_practice) and make it into a seed file
 
 ## License
 
