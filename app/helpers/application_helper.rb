@@ -7,8 +7,4 @@ module ApplicationHelper
     end
     link_to(name, '#', class: locals[:class], data: {id: id, fields: fields.gsub("\n", "")})
   end
-
-  def default_classes
-    "white-font add_fields btn btn-primary"
-  end
 end

@@ -32,7 +32,7 @@
   <%= link_to_add_fields "Add Tag", f, :tags, class: "add-tag white-font add_fields btn btn-primary" %>
 
   <div class="field">
-    <%= f.label :relation_ids, "Related Game:" %>
+    <%= f.label :relation_ids, "Related Game(s):" %>
     <%= f.collection_select :relation_ids, @games, :id, :most_popular_name_content, {}, {multiple:true} %>
   </div>
 
