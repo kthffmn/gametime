@@ -2,6 +2,5 @@ class Tag < ActiveRecord::Base
   has_many :tagizations
   has_many :games, :through => :tagizations
 
-  validates :name, :presence => true
-
+  validates :name, :presence => true, uniqueness: true
 end
