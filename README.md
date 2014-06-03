@@ -31,6 +31,7 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * ~~Add way to add multiple tags to game form~~
 * ~~Fix now screwed up coffeescript for new game form~~
 * ~~Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)~~
+* ~~Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error~~
 * Make homepage
 * Add a [Wrap Bootstrap](https://wrapbootstrap.com/themes) theme
 * Add variations to game form
@@ -39,7 +40,6 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * Add users that authenticate through [Facebook](http://railscasts.com/episodes/360-facebook-authentication)
 * Use users' FB profile photos for their profiles
 * Add "like" functionality to games
-* Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error
 
 ### 2. Angular
 * Style angular
