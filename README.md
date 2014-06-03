@@ -40,6 +40,7 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * Add users that authenticate through [Facebook](http://railscasts.com/episodes/360-facebook-authentication)
 * Use users' FB profile photos for their profiles
 * Add "like" functionality to games
+* Refactor `app/assets/javascripts/games.js.coffee`
 
 ### 2. Angular
 * Style angular
