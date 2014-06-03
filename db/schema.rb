@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140428165343) do
 
   create_table "games", force: true do |t|
     t.text     "description"
+    t.text     "summary"
     t.text     "variations"
     t.text     "example"
     t.integer  "maximum"
