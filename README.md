@@ -4,6 +4,22 @@
 
 A group and and exercise app for improvisors.
 
+## Geting Started
+Command line:
+```
+git clone https://github.com/kthffmn/gametime.git
+cd gametime
+bundle install
+rake db:migrate
+rake db:seed
+```
+Becuase the gem hasn't been updated to require assets as Rails 4 specifies, in the 'chosen' gem, specifically in `stylesheets/chosen.css.scss`, add:
+```
+//= depend_on_asset "chosen-sprite.png"
+//= depend_on_asset "chosen-sprite@2x.png"
+```
+To access the console run ommand line, run `rails c`, and to run the server, run `rails s`. In the browser go to `http://localhost:3000/`.
+
 ## Database
 
 ![Picture of database schema](https://raw.githubusercontent.com/kthffmn/gametime/master/public/img/database_schema.png)
