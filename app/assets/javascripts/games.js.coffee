@@ -37,6 +37,10 @@ jQuery ->
         $('.add-name').show()
       if $('.add-tag').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-tag-form")
         $('.add-tag').show()
+      if $('.add-variation').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-variation-form-form")
+        $('.add-variation').show()
+      if $('.add-tip').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-tip-form")
+        $('.add-tip').show()
       if $('.remove_fields').filter(':visible').length == 0     
         $('#game_names_attributes_0_popularity').hide()  
 
@@ -61,6 +65,32 @@ jQuery ->
         $(this).before($(this).data('fields').replace(regexp, time))
         event.preventDefault()
       else if $('.new-tag-form').children().filter("fieldset").filter(':visible').length >= 3
+        time = new Date().getTime()
+        regexp = new RegExp($(this).data('id'), 'g')
+        $(this).before($(this).data('fields').replace(regexp, time))
+        $(this).hide()
+        event.preventDefault()
+
+    $('form').on 'click', '.add-variation', (event) ->
+      if $('.new-variation-form').children().filter("fieldset").filter(':visible').length < 3
+        time = new Date().getTime() 
+        regexp = new RegExp($(this).data('id'), 'g')
+        $(this).before($(this).data('fields').replace(regexp, time))
+        event.preventDefault()
+      else if $('.new-variation-form').children().filter("fieldset").filter(':visible').length >= 3
+        time = new Date().getTime()
+        regexp = new RegExp($(this).data('id'), 'g')
+        $(this).before($(this).data('fields').replace(regexp, time))
+        $(this).hide()
+        event.preventDefault()
+
+    $('form').on 'click', '.add-tip', (event) ->
+      if $('.new-tip-form').children().filter("fieldset").filter(':visible').length < 3
+        time = new Date().getTime() 
+        regexp = new RegExp($(this).data('id'), 'g')
+        $(this).before($(this).data('fields').replace(regexp, time))
+        event.preventDefault()
+      else if $('.new-tip-form').children().filter("fieldset").filter(':visible').length >= 3
         time = new Date().getTime()
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
