@@ -27,6 +27,7 @@ end
 
 class Game < ActiveRecord::Base
   # connections in alphebetical order
+
   has_many :names
   accepts_nested_attributes_for :names, allow_destroy: true
 
@@ -69,6 +70,10 @@ class Game < ActiveRecord::Base
 
   def all_ages?
     self.early_childhood && self.elementary_school && self.middle_school && self.high_school && self.college && self.adulthood ? true : false
+  end
+
+  before_save do |game|
+    game.summary = /^(.*?)[.?!]\s/.match(game.description)[1] + "..."
   end
   
 end
