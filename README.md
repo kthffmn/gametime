@@ -49,7 +49,7 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * Add other methods to order/search through results (by tag, popularity, etc.)
 
 ### 3. General
-* Make [icon](https://raw.githubusercontent.com/kthffmn/gametime/beta/public/img/bentwood-chair.png)
+* Make [icon](https://raw.githubusercontent.com/kthffmn/gametime/beta/public/img/bentwood-chair.png) using [this tutorial](http://www.creativebloq.com/illustrator/create-pixel-perfect-vector-icon-illustrator-11135242)
 * Decide on name
 * Santize scraped data [here](https://github.com/kthffmn/sanitization_practice) and make it into a seed file
 
