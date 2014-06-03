@@ -4,6 +4,22 @@
 
 A group and and exercise app for improvisors.
 
+## Geting Started
+Command line:
+```
+git clone https://github.com/kthffmn/gametime.git
+cd gametime
+bundle install
+rake db:migrate
+rake db:seed
+```
+Becuase the gem hasn't been updated to require assets as Rails 4 specifies, in the 'chosen' gem, specifically in `stylesheets/chosen.css.scss`, add:
+```
+//= depend_on_asset "chosen-sprite.png"
+//= depend_on_asset "chosen-sprite@2x.png"
+```
+To access the console run ommand line, run `rails c`, and to run the server, run `rails s`. In the browser go to `http://localhost:3000/`.
+
 ## Database
 
 ![Picture of database schema](https://raw.githubusercontent.com/kthffmn/gametime/master/public/img/database_schema.png)
@@ -14,16 +30,16 @@ A group and and exercise app for improvisors.
 * ~~Make strong_params allow for users to make a new tag from game form~~
 * ~~Add way to add multiple tags to game form~~
 * ~~Fix now screwed up coffeescript for new game form~~
+* ~~Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)~~
+* ~~Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error~~
 * Make homepage
 * Add a [Wrap Bootstrap](https://wrapbootstrap.com/themes) theme
 * Add variations to game form
 * Add tips to game form
 * Add search feature for faster browsing
-* Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)
-* Add users that authenticate through [Facebook's omniauth using Devise](http://railscasts.com/episodes/235-devise-and-omniauth-revised)
+* Add users that authenticate through [Facebook](http://railscasts.com/episodes/360-facebook-authentication)
 * Use users' FB profile photos for their profiles
 * Add "like" functionality to games
-* Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error
 
 ### 2. Angular
 * Style angular
