@@ -17,7 +17,10 @@
       <%= render 'name_fields', f: builder %>
     <% end %>
   </div>
-  <%= link_to_add_fields "Add Name", f, :names, class: "add-name white-font add_fields btn btn-primary" %>
+
+  <div class="field new-name-form">
+    <%= link_to_add_fields "Add Name", f, :names, class: "add-name white-font add_fields btn btn-primary" %>
+  </div>
 
   <div class="field">
     <%= f.label :tags %>
@@ -29,7 +32,10 @@
       <%= render 'tag_fields', f: builder %>
     <% end %>
   </div>
-  <%= link_to_add_fields "Add Tag", f, :tags, class: "add-tag white-font add_fields btn btn-primary" %>
+
+  <div class="field new-tag-form">
+    <%= link_to_add_fields "Add Tag", f, :tags, class: "add-tag white-font add_fields btn btn-primary" %>
+  </div>
 
   <div class="field">
     <%= f.label :relation_ids, "Related Game(s):" %>

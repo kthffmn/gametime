@@ -41,13 +41,13 @@ jQuery ->
         $('#game_names_attributes_0_popularity').hide()  
 
     $('form').on 'click', '.add-name', (event) ->
-      if $('.remove_fields').filter(':visible').length < 3
+      if $('.new-name-form').children().filter("fieldset").filter(':visible').length < 2
         time = new Date().getTime() 
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
         $('#game_names_attributes_0_popularity').show()
         event.preventDefault()
-      else if $('.remove_fields').filter(':visible').length >= 3
+      else if $('.new-name-form').children().filter("fieldset").filter(':visible').length >= 2
         time = new Date().getTime()
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
@@ -55,12 +55,12 @@ jQuery ->
         event.preventDefault()
 
     $('form').on 'click', '.add-tag', (event) ->
-      if $('.remove_fields').filter(':visible').length < 3
+      if $('.new-tag-form').children().filter("fieldset").filter(':visible').length < 3
         time = new Date().getTime() 
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
         event.preventDefault()
-      else if $('.remove_fields').filter(':visible').length >= 3
+      else if $('.new-tag-form').children().filter("fieldset").filter(':visible').length >= 3
         time = new Date().getTime()
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, time))
