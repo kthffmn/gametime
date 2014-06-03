@@ -23,8 +23,12 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/games">Home</a></li>
-            <li><a href="/games/new">Add Game</a></li>
+            <li class="<%= is_active?("/games") %>">
+              <a href="/games">Home</a>
+            </li>
+            <li class="<%= is_active?("/games/new") %>">
+              <a href="/games/new">Add Game</a>
+            </li>
             <li><a href="/games-angular">Angular</a></li>
           </ul>
         </div><!--/.nav-collapse -->

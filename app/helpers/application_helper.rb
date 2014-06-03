@@ -7,4 +7,8 @@ module ApplicationHelper
     end
     link_to(name, '#', class: locals[:class], data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def is_active?(link_path)
+    current_page?(link_path) ? "active" : ""
+  end
 end
