@@ -37,7 +37,7 @@ jQuery ->
         $('.add-name').show()
       if $('.add-tag').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-tag-form")
         $('.add-tag').show()
-      if $('.add-variation').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-variation-form-form")
+      if $('.add-variation').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-variation-form")
         $('.add-variation').show()
       if $('.add-tip').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-tip-form")
         $('.add-tip').show()
