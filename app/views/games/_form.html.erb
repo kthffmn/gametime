@@ -37,6 +37,14 @@
     <%= link_to_add_fields "Add Tag", f, :tags, class: "add-tag white-font add_fields btn btn-primary" %>
   </div>
 
+  <div class="field new-variation-form">
+    <%= link_to_add_fields "Add Variation", f, :variations, class: "add-variation white-font add_fields btn btn-primary" %>
+  </div>
+
+  <div class="field new-tip-form">
+    <%= link_to_add_fields "Add Tip", f, :tips, class: "add-tip white-font add_fields btn btn-primary" %>
+  </div>
+
   <div class="field">
     <%= f.label :relation_ids, "Related Game(s):" %>
     <%= f.collection_select :relation_ids, @games, :id, :most_popular_name_content, {}, {multiple:true} %>
