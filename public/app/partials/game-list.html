@@ -13,10 +13,9 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Example</th>
+      <th>Number of Players</th>
+      <th>Tags</th>
       <th>Likes</th>
-      <th>Minimum</th>
-      <th>Maximum</th>
     </tr>
     <tr ng-repeat="game in games | filter: query | orderBy:orderProp" data-id={{game.id}}>
       <td>
@@ -24,12 +23,15 @@
           {{game.most_popular_name.content}}
         </a>
       </td>
-      <td>{{game.description}}</td>
-      <td>{{game.example}}</td>
+      <td>{{game.summary}}</td>
+      <td>{{game.minimum}} - {{game.maximum}}</td>
+      <td>
+        <li ng-repeat="tag in game.tags">
+          {{tag.name}}
+        </li>
+      </td ng-repeat-end> 
       <td>{{game.likes}}</td>
-      <td>{{game.minimum}}</td>
-      <td>{{game.maximum}}</td>
-    </tr>
+    </tr ng-repeat-end>
   </table>
 
 </div>
