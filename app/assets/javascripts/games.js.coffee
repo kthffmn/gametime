@@ -33,9 +33,9 @@ jQuery ->
       $(this).prev('input[type=hidden]').val('1')
       $(this).closest('fieldset').hide()
       event.preventDefault
-      if $('.add-name').filter(':visible').length == 0
+      if $('.add-name').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-name-form")
         $('.add-name').show()
-      if $('.add-tag').filter(':visible').length == 0
+      if $('.add-tag').filter(':visible').length == 0 && $(this).parent().parent().hasClass("new-tag-form")
         $('.add-tag').show()
       if $('.remove_fields').filter(':visible').length == 0     
         $('#game_names_attributes_0_popularity').hide()  
