@@ -30,12 +30,12 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * ~~Make strong_params allow for users to make a new tag from game form~~
 * ~~Add way to add multiple tags to game form~~
 * ~~Fix now screwed up coffeescript for new game form~~
+* ~~Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)~~
 * Make homepage
 * Add a [Wrap Bootstrap](https://wrapbootstrap.com/themes) theme
 * Add variations to game form
 * Add tips to game form
 * Add search feature for faster browsing
-* Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)
 * Add users that authenticate through [Facebook](http://railscasts.com/episodes/360-facebook-authentication)
 * Use users' FB profile photos for their profiles
 * Add "like" functionality to games
