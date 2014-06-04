@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gametime</title>
+    <title>Bentwood Chairs</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -19,17 +19,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="javascript:location.reload(true);" class="navbar-brand">Games</a>
+          <a href="/home" class="navbar-brand">Bentwood Chairs</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="<%= is_active?("/games") %>">
-              <a href="/games">Home</a>
+           <ul class="nav navbar-nav">
+            <li class="<%= is_active?("/about") %>">
+              <a href="/about">About</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="<%= is_active?("/home") %>">
+              <a href="/home">Home</a>
             </li>
             <li class="<%= is_active?("/games/new") %>">
               <a href="/games/new">Add Game</a>
             </li>
-            <li><a href="/games-angular">Angular</a></li>
+            <li><a href="/games-angular">Browse</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
