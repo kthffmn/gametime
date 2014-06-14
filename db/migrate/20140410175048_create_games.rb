@@ -7,6 +7,9 @@ class CreateGames < ActiveRecord::Migration
       t.text :example
       t.integer :maximum
       t.integer :minimum
+      t.integer :total_stars, :default => 0
+      t.integer :num_of_reviews, :default => 0
+      t.integer :average_rating, :default => 0
       t.integer :likes, :default => 0
       t.boolean :early_childhood
       t.boolean :elementary_school
