@@ -3,7 +3,7 @@
  <div class="search">
     <input id="search" type="text" ng-model="query" />
     <select ng-model="orderProp">
-      <option value="likes">Popularity</option>
+      <option value="rating">Rating</option>
       <option value="minimum">Minimum Number of Players</option>
       <option value="maximum">Maximum Number of Players</option>
     </select>
@@ -15,7 +15,7 @@
       <th>Description</th>
       <th>Number of Players</th>
       <th>Tags</th>
-      <th>Likes</th>
+      <th>Rating</th>
     </tr>
     <tr ng-repeat="game in games | filter: query | orderBy:orderProp" data-id={{game.id}}>
       <td>
@@ -30,7 +30,7 @@
           {{tag.name}}
         </li>
       </td ng-repeat-end> 
-      <td>{{game.likes}}</td>
+      <td>{{game.average_rating}}</td>
     </tr ng-repeat-end>
   </table>
 

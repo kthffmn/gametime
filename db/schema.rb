@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428165343) do
+ActiveRecord::Schema.define(version: 20140614204934) do
 
   create_table "games", force: true do |t|
     t.text     "description"
@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 20140428165343) do
     t.text     "example"
     t.integer  "maximum"
     t.integer  "minimum"
-    t.integer  "total_stars",       default: 0
-    t.integer  "num_of_reviews",    default: 0
+    t.integer  "total_stars",       default: 1
+    t.integer  "num_of_reviews",    default: 1
     t.integer  "average_rating",    default: 0
-    t.integer  "likes",             default: 0
     t.boolean  "early_childhood"
     t.boolean  "elementary_school"
     t.boolean  "middle_school"
@@ -48,6 +47,12 @@ ActiveRecord::Schema.define(version: 20140428165343) do
     t.integer  "relation_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.integer "num_of_stars"
   end
 
   create_table "tagizations", id: false, force: true do |t|
