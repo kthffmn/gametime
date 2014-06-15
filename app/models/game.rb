@@ -77,7 +77,9 @@ class Game < ActiveRecord::Base
 
   before_save do |game|
     game.summary = /^(.*?)[.?!]\s/.match(game.description)[1] + "..."
-    game.average_rating = game.total_stars / game.num_of_reviews
+    if game.num_of_reviews > 0
+      game.average_rating = game.total_stars / game.num_of_reviews
+    end
   end
   
 end
