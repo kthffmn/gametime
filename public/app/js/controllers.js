@@ -7,6 +7,6 @@ gametimeControllers.controller('GameListCtrl', ['$scope', '$http',
     $http.get('/games.json').success(function(data) {
       $scope.games = data;
     });
-  $scope.orderProp = 'minimum';
+  $scope.orderProp = 'most_popular_name.content';
   }
 ]);

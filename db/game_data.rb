@@ -2201,7 +2201,7 @@
         ]
     },
     {
-             :see_also => [],
+             :see_also => ["Bunny"],
            :variations => [],
         :also_known_as => [],
                  :name => "Killer Bunny",
