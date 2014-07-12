@@ -86,6 +86,9 @@ class SeedDatabase
 
   def add_related_games
     unfound_games = []
+    unfound_names = []
+    unfound_related_names = []
+    unfound_related_games = []
     game_data.each do |game|
       if name = Name.find_by(:content => game[:name])
         if found_game = name.game
@@ -93,18 +96,31 @@ class SeedDatabase
             if related_name = Name.find_by(:content => content)
               if related_game = related_name.game
                 found_game.relations << related_game
+              else
+                unfound_related_games << related_name.content
               end
+            else
+              unfound_related_names << game
             end
           end
         else
-          binding.pry
+          unfound_games << name.content
         end
+      else
+        unfound_names << game[:name]
       end
     end
     puts "E. relations added ********"
-    if unfound_games.length > 0
-      puts "F. unfound games"
+    if  unfound_names.length > 0           || unfound_games.length > 0           || 
+        unfound_related_names.length > 0   || unfound_related_games.length > 0
+      puts "ERROR: unfound names"
+      puts unfound_names.inspect
+      puts "ERROR: unfound games"
       puts unfound_games.inspect
+      puts "ERROR: unfound related names"
+      puts unfound_related_names.inspect
+      puts "ERROR: unfound related games"
+      puts unfound_related_games.inspect
     end
   end
 end
