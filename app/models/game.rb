@@ -90,10 +90,10 @@ class Game < ActiveRecord::Base
     end
   
     def popularity_validation
-      popularity_values = game.names.collect{|name| name.popularity }
+      popularity_values = self.names.collect{|name| name.popularity }
       num_of_popularity_values = popularity_values.length
       if num_of_popularity_values > 1 && popularity_values.include?(0)
-        return errors.add(:name_ids, "Please select popularity value(s).")
+        errors.add(:name_ids, "Please select popularity value(s).")
       end
       unless num_of_popularity_values == popularity_values.uniq.length
         errors.add(:name_ids, "Select different popularity values.")
