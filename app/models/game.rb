@@ -69,8 +69,11 @@ class Game < ActiveRecord::Base
     # before_save 2/2 
     # this could slow down the program becuase it's triggered regardless of what was changed
     def update_summary
-      if self.description
-        self.summary = /^(.*?)[.?!]\s/.match(self.description)[1] + "..."
+      if self.description != nil
+        shortened = /^(.*?)[.?!]\s/.match(self.description)
+        if shortened
+          self.summary = shortened[1] + "..."
+        end
       end
     end
 

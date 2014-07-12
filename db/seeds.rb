@@ -21,7 +21,7 @@ end
 def add_games
   game_data = load_data
   game_data.each_with_index do |g, i|
-    game = Game.create(
+    game = Game.new(
       description: g[:description], 
       adulthood: 1,
       college: 1,
@@ -32,6 +32,7 @@ def add_games
       maximum: 25,
     )
     game.names << Name.create(content: g[:name], popularity: 4)
+    game.save
     make_tags(g, game) if g[:tags]          && g[:tags].class == Array          && g[:tags].length > 0
     make_tips(g, game) if g[:notes]         && g[:notes].class == Array         && g[:notes].length > 0
     make_vars(g, game) if g[:variations]    && g[:variations].class == Array    && g[:variations].length > 0

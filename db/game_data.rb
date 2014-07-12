@@ -76,7 +76,7 @@
             "Actor Switch"
         ],
                  :name => "Switcheroo",
-          :description => "This is like Simple Continuation , except that the MC interrupts the scene several times, and at each interruption all actors in the scene get switched; no new actors join in, and no actors leave."
+          :description => "This is a lot like Simple Continuation. It varies in that the MC interrupts the scene several times, and at each interruption all actors in the scene get switched; no new actors join in, and no actors leave."
     },
     {
              :see_also => [],
