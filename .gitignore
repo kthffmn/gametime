@@ -25,6 +25,4 @@ vendor/assets/images/.DS_Store
 vendor/assets/javascripts/.DS_Store
 vendor/assets/stylesheets/.DS_Store
 
-config/secrets.yml
-
-*/secrets.yml
+/config/secrets.yml
