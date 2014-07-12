@@ -32,10 +32,10 @@ def add_games
       maximum: 25,
     )
     game.names << Name.create(content: g[:name], popularity: 4)
-    make_tags(g, game) if g[:tags]          && g[:tags].class == Array
-    make_tips(g, game) if g[:notes]         && g[:notes].class == Array
-    make_vars(g, game) if g[:variations]    && g[:variations].class == Array
-    add_names(g, game) if g[:also_known_as] && g[:also_known_as].class == Array
+    make_tags(g, game) if g[:tags]          && g[:tags].class == Array          && g[:tags].length > 0
+    make_tips(g, game) if g[:notes]         && g[:notes].class == Array         && g[:notes].length > 0
+    make_vars(g, game) if g[:variations]    && g[:variations].class == Array    && g[:variations].length > 0
+    add_names(g, game) if g[:also_known_as] && g[:also_known_as].class == Array && g[:also_known_as].length > 0
     game.save
     print_info(i, game)
   end
@@ -43,7 +43,7 @@ def add_games
 end
 
 def print_info(i, game)
-  puts "#{i + 1}. #{game.names.first.content} added"
+  puts "#{i + 1}. #{game.names.first.content}"
   if game.description == nil
     puts "******** #{game.names.first.content} has no description ********"
   end
