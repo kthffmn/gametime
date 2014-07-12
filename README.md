@@ -32,15 +32,15 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * ~~Fix now screwed up coffeescript for new game form~~
 * ~~Make [active links in nav-bar appear active](http://stackoverflow.com/questions/9862524/twitter-bootstrap-pills-with-rails-3-2-2)~~
 * ~~Beta branch: Fix bug where entering a negative number into min and max breaks the app resulting in a "can't use map with nil class" (also seen in 2 rspec failures) error~~
-* Make homepage
+* ~~Make homepage~~
 * Add a [Wrap Bootstrap](https://wrapbootstrap.com/themes) theme
 * Add variations to game form
 * Add tips to game form
 * Add search feature for faster browsing
 * Add users that authenticate through [Facebook](http://railscasts.com/episodes/360-facebook-authentication)
 * Use users' FB profile photos for their profiles
-* Add "like" functionality to games
-* Refactor `app/assets/javascripts/games.js.coffee`
+* Add "review" functionality to games
+* Add "fav" functionality to games
 
 ### 2. Angular
 * Style angular
@@ -49,9 +49,9 @@ To access the console run ommand line, run `rails c`, and to run the server, run
 * Add other methods to order/search through results (by tag, popularity, etc.)
 
 ### 3. General
-* Make [icon](https://raw.githubusercontent.com/kthffmn/gametime/beta/public/img/bentwood-chair.png) using [this tutorial](http://www.creativebloq.com/illustrator/create-pixel-perfect-vector-icon-illustrator-11135242)
+* ~~Santize scraped data [here](https://github.com/kthffmn/sanitization_practice) and make it into a seed file~~
+* Make [icon](http://designexemplars.files.wordpress.com/2011/06/thonet-bentwood-chair.jpg)
 * Decide on name
-* Santize scraped data [here](https://github.com/kthffmn/sanitization_practice) and make it into a seed file
 
 ## License
 
