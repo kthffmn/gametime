@@ -21,7 +21,7 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :variations, allow_destroy: true
 
   # alphebetical validations
-  validates :description, :presence => true, :length => { :minimum => 10, :maximum => 1000, :message => "must be between 10-1000 characters"}
+  validates :description, :presence => true, :length => { :minimum => 10, :maximum => 3000, :message => "must be between 10-3000 characters"}
   validates_numericality_of [:minimum, :maximum], :greater_than_or_equal_to => 1, only_integer: true
   validate :age_group_validation, :max_not_smaller_than_min_validation, :name_validation, :popularity_validation
 
@@ -102,9 +102,6 @@ class Game < ActiveRecord::Base
       num_of_popularity_values = popularity_values.length
       if num_of_popularity_values > 1 && popularity_values.include?(0)
         errors.add(:name_ids, "Please select popularity value(s).")
-      end
-      unless num_of_popularity_values == popularity_values.uniq.length
-        errors.add(:name_ids, "Select different popularity values.")
       end
     end
   #end of private method
