@@ -19,10 +19,6 @@ describe Game do
     expect(invalid_num_game).to_not be_valid
   end
 
-  its "invalid with two names of the same popularity value" do
-    expect(invalid_name_game).to_not be_valid
-  end
-
   its "invalid without at least one name" do
     expect(no_name).to_not be_valid
   end
