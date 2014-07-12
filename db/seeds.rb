@@ -23,14 +23,14 @@ def add_games
       maximum: 25,
     )
     game.names = [Name.create(content: g[:name], popularity: 4)]
-    game[:tags].each do |t|
-      game.tags << Tag.find_by_name(content: t)
+    game[:tags].each do |content|
+      game.tags << Tag.find_by_name(content: content)
     end
-    game[:notes].each do |n|
-      game.notes << Note.create(content: n)
+    game[:notes].each do |content|
+      game.tips << Note.create(content: content)
     end
-    game[:variations].each do |v|
-      game.variations << Variation.create(content: v)
+    game[:variations].each do |content|
+      game.variations << Variation.create(content: content)
     end
     game[:also_known_as].each do |other_name|
       game.names << Name.create(content: other_name, popularity: 2)
@@ -40,15 +40,18 @@ def add_games
 end
 
 def add_related_games
-  game_data.each do |data|
-    name = Name.find_by(:content => data[:name])
-    game = name.game
-    data[:see_also].each do |related|
-      related_name = Name.find_by(:content => related)
-      related_game = name.game
-      game.related_games << related_game
+  game_data.each do |game|
+    if found_game = Name.find_by(:content => game[:name]).game
+      game[:see_also].each do |content|
+        if related_game = Name.find_by(:content => content).game
+          found_game.relations << related_game
+        end
+      end
+    else
+      unfound_games << game[:name]
     end
   end
+  puts unfound_games.inspect
 end
 
 def main

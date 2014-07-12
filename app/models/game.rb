@@ -26,7 +26,6 @@ class Game < ActiveRecord::Base
   validate :age_group_validation, :max_not_smaller_than_min_validation, :name_validation, :popularity_validation
 
   # ActiveRecord instructions
-
   before_save :update_average_rating, :update_summary
 
   # instance methods
@@ -59,12 +58,16 @@ class Game < ActiveRecord::Base
   private
 
     # ActiveRecord methods
+
+    # before_save 1/2
     def update_average_rating
       if self.num_of_reviews > 0
         self.average_rating = self.total_stars / self.num_of_reviews
       end
     end
-
+     
+    # before_save 2/2 
+    # this could slow down the program becuase it's triggered regardless of what was changed
     def update_summary
       self.summary = /^(.*?)[.?!]\s/.match(self.description)[1] + "..."
     end

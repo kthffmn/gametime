@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140614204934) do
   create_table "reviews", force: true do |t|
     t.integer "user_id"
     t.integer "game_id"
-    t.integer "num_of_stars"
+    t.integer "stars"
   end
 
   create_table "tagizations", id: false, force: true do |t|
