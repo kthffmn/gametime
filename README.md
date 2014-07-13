@@ -28,6 +28,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook, 'YOUR-APP-ID-HERE', 'YOUR-APP-SECRET-HERE'
 end
 ```
+For more info on oauth through Facebook, see [this post](https://coderwall.com/p/bsfitw).
 
 To access the console from the command line, run `rails c`, and to run the server, run `rails s`. In the browser go to `http://localhost:3000/`.
 
