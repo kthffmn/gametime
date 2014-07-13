@@ -18,7 +18,17 @@ Becuase the gem hasn't been updated to require assets as Rails 4 specifies, in t
 //= depend_on_asset "chosen-sprite.png"
 //= depend_on_asset "chosen-sprite@2x.png"
 ```
-Go to [Facebook's app dev page](https://developers.facebook.com/apps) and create an app with a callback of `http://localhost:3000`. Update `app/assets/javascripts/facebook.js.coffee`, line 11, to reflect your FB app's id. Add your FB app's id and key either to an application.yml file, secrets.yml file, or directly to the `config/initalizers/omniauth.rb` file. Make sure not to the key to GitHub.
+Go to [Facebook's app dev page](https://developers.facebook.com/apps) and create an app with a callback of `http://localhost:3000`. Update `app/assets/javascripts/facebook.js.coffee`, line 11, to reflect your FB app's id. Add your FB app's id and key either to an application.yml file, secrets.yml file, or directly to the `config/initalizers/omniauth.rb` file. Make sure not to push the key to GitHub.
+
+Create Omniauth initializer in `config/initializers/` called `omniauth.rb`. Add the code below to it:
+```ruby
+OmniAuth.config.logger = Rails.logger
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, 'YOUR-APP-ID-HERE', 'YOUR-APP-SECRET-HERE'
+end
+```
+For more info on oauth through Facebook, see [this post](https://coderwall.com/p/bsfitw).
 
 To access the console from the command line, run `rails c`, and to run the server, run `rails s`. In the browser go to `http://localhost:3000/`.
 
