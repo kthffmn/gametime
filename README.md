@@ -20,8 +20,6 @@ Becuase the gem hasn't been updated to require assets as Rails 4 specifies, in t
 ```
 Go to [Facebook's app dev page](https://developers.facebook.com/apps) and create an app with a callback of `http://localhost:3000`. Update `app/assets/javascripts/facebook.js.coffee`, line 11, to reflect your FB app's id. Add your FB app's id and key either to an application.yml file, secrets.yml file, or directly to the `config/initalizers/omniauth.rb` file. Make sure not to push the key to GitHub.
 
-Make a new file
-
 Create Omniauth initializer in `config/initializers/` called `omniauth.rb`. Add the code below to it:
 ```ruby
 OmniAuth.config.logger = Rails.logger
