@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614204934) do
+ActiveRecord::Schema.define(version: 20140713001210) do
 
   create_table "games", force: true do |t|
     t.text     "description"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20140614204934) do
   create_table "tips", force: true do |t|
     t.string   "content"
     t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
