@@ -20,7 +20,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 # For the token fields for tags
 gem 'chosen-rails'
-
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
