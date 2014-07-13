@@ -28,6 +28,12 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+              <li>Welcome <strong><%= current_user.name %></strong></li>
+              <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+            <% else %>
+              <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+            <% end %>
             <li class="<%= is_active?("/") %>">
               <a href="/">Home</a>
             </li>
@@ -42,6 +48,9 @@
 
     <!-- content -->
     <div class="container pad-this-thingy" role="main">
+      <div id="user-widget">
+
+      </div>
       <%= yield %>
     </div>
 
