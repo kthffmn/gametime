@@ -33,13 +33,26 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li ng-if="{{user}} == undefined">
+              <a hef="/auth/facebook">
+                Sign in with Facebook
+              </a>
+            </li>
             <li>
               <a href="/">Home</a>
             </li>
             <li>
               <a href="/games/new">Add Game</a>
             </li>
-            <li class="active"><a href="/games-angular">Browse</a></li>
+            <li class="active">
+              <a href="/games-angular">Browse</a>
+            </li>
+            <li ng-if="{{user}}"><a href="/users/{{user.id}}">
+              Logged in as <%= current_user.name %>
+            </a></li>
+            <li ng-if="{{user}}"><a href="/signout">
+              Sign out
+            </a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

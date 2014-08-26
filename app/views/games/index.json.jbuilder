@@ -5,7 +5,7 @@ if current_user
     json.reviewed_games do
       json.array! current_user.reviews, :game_id
     end
-    json.favorited_game do
+    json.favorited_games do
       json.array! current_user.favorites, :game_id
     end
   end
