@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     @games = Game.all
     respond_to do |format|
       format.html
-      format.json { render :json => @games.to_json(:include => [:most_popular_name, :variations, :tags, :tips])}
+      format.json
     end
   end
 

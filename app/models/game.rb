@@ -57,7 +57,7 @@ class Game < ActiveRecord::Base
     if self.num_of_reviews > 0
       self.total_stars / self.num_of_reviews
     else
-      "No ratings yet"
+      "N/A"
     end
   end
   
