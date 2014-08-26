@@ -1,12 +1,20 @@
 class User < ActiveRecord::Base
+  has_many :reviews
+  has_many :reviewed_games, :through => :reviews, :source => :game
+  
+  has_many :favorites
+  has_many :favorite_games, :through => :favorites, :source => :game
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
+      user.provider         = auth.provider
+      user.uid              = auth.uid
+      user.name             = auth.info.name
+      user.oauth_token      = auth.credentials.token
+      user.image_url        = auth.info.image
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
   end
+
 end

@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713001210) do
+ActiveRecord::Schema.define(version: 20140826170733) do
+
+  create_table "favorites", force: true do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+  end
 
   create_table "games", force: true do |t|
     t.text     "description"
@@ -22,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140713001210) do
     t.integer  "minimum"
     t.integer  "total_stars",       default: 0
     t.integer  "num_of_reviews",    default: 0
-    t.integer  "average_rating",    default: 0
+    t.integer  "num_of_favs",       default: 0
     t.boolean  "early_childhood"
     t.boolean  "elementary_school"
     t.boolean  "middle_school"
@@ -76,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140713001210) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "image_url"
     t.string   "provider"
     t.string   "uid"
     t.string   "name"

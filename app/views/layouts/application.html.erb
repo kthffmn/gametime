@@ -28,10 +28,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-              <li><a href="#">Logged in as <%= current_user.name %></a></li>
-            <% else %>
+            <% if !current_user %>
               <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
             <% end %>
             <li class="<%= is_active?("/") %>">
@@ -41,6 +38,12 @@
               <a href="/games/new">Add Game</a>
             </li>
             <li><a href="/games-angular">Browse</a></li>
+            <% if current_user %>
+              <li><a href="<%= user_path(current_user) %>">
+                Logged in as <%= current_user.name %>
+              </a></li>
+              <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

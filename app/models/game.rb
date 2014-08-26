@@ -15,7 +15,7 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :tips, allow_destroy: true
 
   has_many :reviews
-  has_many :reviewer, :through => :reviews, :class_name => "User"
+  has_many :reviewers, :through => :reviews, :source => :user
 
   has_many :variations
   accepts_nested_attributes_for :variations, allow_destroy: true
@@ -26,7 +26,7 @@ class Game < ActiveRecord::Base
   validate :age_group_validation, :max_not_smaller_than_min_validation, :name_validation, :popularity_validation
 
   # ActiveRecord instructions
-  before_save :update_average_rating, :update_summary
+  before_save :update_summary
 
   # instance methods
   def sort_names_by_popularity
@@ -52,21 +52,20 @@ class Game < ActiveRecord::Base
   def all_ages?
     self.early_childhood && self.elementary_school && self.middle_school && self.high_school && self.college && self.adulthood ? true : false
   end
+
+  def average_rating
+    if self.num_of_reviews > 0
+      self.total_stars / self.num_of_reviews
+    else
+      "No ratings yet"
+    end
+  end
   
   # class methods would go below here
 
   private
 
-    # ActiveRecord methods
-
-    # before_save 1/2
-    def update_average_rating
-      if self.num_of_reviews > 0
-        self.average_rating = self.total_stars / self.num_of_reviews
-      end
-    end
-     
-    # before_save 2/2 
+    # before_save 
     # this could slow down the program becuase it's triggered regardless of what was changed
     def update_summary
       if self.description != nil
@@ -104,5 +103,5 @@ class Game < ActiveRecord::Base
         errors.add(:name_ids, "Please select popularity value(s).")
       end
     end
-  #end of private method
+  # end of private method
 end

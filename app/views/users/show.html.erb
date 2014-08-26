@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= @user.name %></h1>
+    <img src="<%= @user.image_url %>" alt="Facebook Profile Picture"/>
+    <% if @user.favorite_games.any? %>
+      <h3>Favorites</h3>
+      <ul>
+        <% @user.favorite_games.each do |game| %>
+          <li>
+            <a href="<%= game_path(game) %>">
+              <%= game.most_popular_name_content %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if @user.reviews.any? %>
+      <h3>Favorites</h3>
+      <ul>
+        <% @user.reviews.each do |game| %>
+          <li>
+            <a href="<%= game_path(game) %>">
+              <%= game.most_popular_name_content %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
