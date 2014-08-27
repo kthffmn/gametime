@@ -39,9 +39,9 @@
             </li>
             <li><a href="/games-angular">Browse</a></li>
             <% if current_user %>
-              <li><a href="<%= user_path(current_user) %>">
-                Logged in as <%= current_user.name %>
-              </a></li>
+              <li class="<%= (controller.controller_name.eql?("users") && controller.action_name.eql?("show") )? "active" : "" %>">
+                <%= link_to "Logged in as #{current_user.name}", user_path(current_user) %>
+              </li>
               <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
             <% end %>
           </ul>

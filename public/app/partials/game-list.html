@@ -41,43 +41,43 @@
     </div><!--/.nav-collapse -->
   </div>
 </div>
+<div class="container pad-this-thingy" role="main">
+  <div class="container-fluid">
 
+   <div class="search">
+      <input id="search" type="text" ng-model="query" />
+      <select ng-model="orderProp">
+        <option value="minimum">Minimum Number of Players</option>
+        <option value="maximum">Maximum Number of Players</option>
+        <option value="most_popular_name.content">Name</option>
+        <option value="average_rating">Rating</option>
+      </select>
+    </div>
 
-<div class="container-fluid">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Number of Players</th>
+        <th>Tags</th>
+        <th>Rating</th>
+      </tr>
+      <tr ng-repeat="game in games | filter: query | orderBy:orderProp" data-id={{game.id}}>
+        <td>
+          <a href="/games/{{game.id}}">
+            {{game.most_popular_name.content}}
+          </a>
+        </td>
+        <td>{{game.summary}}</td>
+        <td>{{game.minimum}} - {{game.maximum}}</td>
+        <td>
+          <li ng-repeat="tag in game.tags">
+            {{tag.name}}
+          </li>
+        </td ng-repeat-end> 
+        <td>{{game.average_rating}}</td>
+      </tr ng-repeat-end>
+    </table>
 
- <div class="search">
-    <input id="search" type="text" ng-model="query" />
-    <select ng-model="orderProp">
-      <option value="minimum">Minimum Number of Players</option>
-      <option value="maximum">Maximum Number of Players</option>
-      <option value="most_popular_name.content">Name</option>
-      <option value="average_rating">Rating</option>
-    </select>
   </div>
-
-  <table class="table">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Number of Players</th>
-      <th>Tags</th>
-      <th>Rating</th>
-    </tr>
-    <tr ng-repeat="game in games | filter: query | orderBy:orderProp" data-id={{game.id}}>
-      <td>
-        <a href="/games/{{game.id}}">
-          {{game.most_popular_name.content}}
-        </a>
-      </td>
-      <td>{{game.summary}}</td>
-      <td>{{game.minimum}} - {{game.maximum}}</td>
-      <td>
-        <li ng-repeat="tag in game.tags">
-          {{tag.name}}
-        </li>
-      </td ng-repeat-end> 
-      <td>{{game.average_rating}}</td>
-    </tr ng-repeat-end>
-  </table>
-
 </div>
